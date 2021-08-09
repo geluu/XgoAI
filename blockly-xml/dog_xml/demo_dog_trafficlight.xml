@@ -1,0 +1,665 @@
+<xml xmlns="http://www.w3.org/1999/xhtml" type="AI">
+  <block type="robot_dog_setup" id="^jlORBO[P^#IWaLx9mML" x="144" y="-213">
+    <next>
+      <block type="ai_lcd_screeninit" id="HX0e27@,WGWSzsnU%WfK">
+        <next>
+          <block type="ai_camera_init" id="j-!k*12QJI_pGtLhci)7">
+            <field name="DEGREE">QVGA</field>
+            <field name="DEGREE1">RGB565</field>
+            <next>
+              <block type="ai_camera_image_property_change" id="}x!9AmTMt42{.vw;3m@Q">
+                <field name="image_property">set_hmirror</field>
+                <field name="DEGREE">True</field>
+                <next>
+                  <block type="ai_camera_windows" id="h-+=^+ED:_EPj.)_eV8.">
+                    <field name="window_w">224</field>
+                    <field name="window_h">224</field>
+                    <next>
+                      <block type="ai_model_customized_init_setup_definition" id="B0BT.9ZnfSrv`^L#;7M|">
+                        <next>
+                          <block type="controls_repeat_forever" id="ry/lub[XJnkcj:{$4zW$">
+                            <statement name="DO">
+                              <block type="variables_set" id="mTIY-F8fOK.:z}3*wdIk">
+                                <field name="VAR">camera</field>
+                                <value name="VALUE">
+                                  <shadow type="math_number" id="#8cMjsa)R%pEWu[m`irL">
+                                    <field name="NUM">0</field>
+                                  </shadow>
+                                  <block type="ai_camera_snapshot" id="Y,MQm0P|9:VhLa;dg@P9"></block>
+                                </value>
+                                <next>
+                                  <block type="ai_model_customized_init_setup" id="nbR1E!_f$33b?1eeY;e+">
+                                    <field name="model_path">/sd/preset/models/traffic/trafficlight.kmodel</field>
+                                    <field name="varitem">camera</field>
+                                    <value name="class_input">
+                                      <block type="lists_create_with" id="SBtU6^JsO]Qyt,/D}#;u">
+                                        <mutation items="2"></mutation>
+                                        <value name="ADD0">
+                                          <block type="text" id="TNr1(`G?$Nq;rqoIUY14">
+                                            <field name="TEXT">green</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD1">
+                                          <block type="text" id="RFMefa5nmOzZ5sT`gdLB">
+                                            <field name="TEXT">red</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="controls_if" id="jPdrzy}{YEg*Fb:d$y*1">
+                                        <value name="IF0">
+                                          <block type="ai_model_customized_if_got" id="18G:Fh%_W`Tz[heU#yaE"></block>
+                                        </value>
+                                        <statement name="DO0">
+                                          <block type="controls_forEach" id="e=zDys;o8_mIm9IPPr]n">
+                                            <field name="VAR">i</field>
+                                            <value name="LIST">
+                                              <block type="ai_model_customized_if_got" id="ZJv%kfp+*RFUs$`D7W|5"></block>
+                                            </value>
+                                            <statement name="DO">
+                                              <block type="variables_set" id="KR#LOV-*1AFo)aJDcAw8">
+                                                <field name="VAR">dstr</field>
+                                                <value name="VALUE">
+                                                  <shadow type="math_number" id="TW95^l36E[e=xwDG:tV9">
+                                                    <field name="NUM">0</field>
+                                                  </shadow>
+                                                  <block type="ai_model_customized_get_result" id="/4g.W~F(OTS[?JD-Nrt5">
+                                                    <field name="varitem">i</field>
+                                                    <field name="get_results">classid</field>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="controls_if" id=".r5@z*`y:-HWThdmR!A7">
+                                                    <mutation elseif="1"></mutation>
+                                                    <value name="IF0">
+                                                      <block type="logic_compare" id="d:JEQMX[+QvXCnk}`zM:">
+                                                        <field name="OP">EQ</field>
+                                                        <value name="A">
+                                                          <block type="variables_get" id="1yw^rB=8.IRQ}wd7FTcw">
+                                                            <field name="VAR">dstr</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="text" id="!WJD(Zi9u4X{zTVmxk:T">
+                                                            <field name="TEXT">green</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <statement name="DO0">
+                                                      <block type="ai_lcd_ractanglecarvas" id="=!lX@H|taZ6xQqlS|JFs">
+                                                        <field name="varitem">camera</field>
+                                                        <field name="rect_type">rect</field>
+                                                        <value name="POSA">
+                                                          <block type="lcd_set_position" id="1oK{|%uxc:jmeXpTLjtq">
+                                                            <value name="POSX">
+                                                              <shadow type="math_number" id="8IVNy+*F~*S:xUwunP{.">
+                                                                <field name="NUM">0</field>
+                                                              </shadow>
+                                                              <block type="ai_model_customized_get_result" id=")@0?+TN)|UfQu0aEX0A?">
+                                                                <field name="varitem">i</field>
+                                                                <field name="get_results">x</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="POSY">
+                                                              <shadow type="math_number" id="$4aW[;Tch439Xd9cxJ:0">
+                                                                <field name="NUM">0</field>
+                                                              </shadow>
+                                                              <block type="ai_model_customized_get_result" id="nxHiPfZ%.nuD4_mly7Gt">
+                                                                <field name="varitem">i</field>
+                                                                <field name="get_results">y</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="POSB">
+                                                          <block type="lcd_set_width_height" id="Kt(*.wJ+etL`Odtqr?-k">
+                                                            <value name="WIDTH">
+                                                              <shadow type="math_number" id="CBV.saT9e)JgDJi6H6FD">
+                                                                <field name="NUM">0</field>
+                                                              </shadow>
+                                                              <block type="ai_model_customized_get_result" id="tq:P{p_?@UMddXSkQ/{t">
+                                                                <field name="varitem">i</field>
+                                                                <field name="get_results">w</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="HEIGHT">
+                                                              <shadow type="math_number" id="=xd?Hzn$pD_o!?@`(;cr">
+                                                                <field name="NUM">0</field>
+                                                              </shadow>
+                                                              <block type="ai_model_customized_get_result" id="yl/%3+pqu8]h#=qL)^wl">
+                                                                <field name="varitem">i</field>
+                                                                <field name="get_results">h</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="COLOR">
+                                                          <block type="lcd_set_color" id="M{DeinNxsT+/nw-d@-Zb">
+                                                            <field name="COLOR">#33ff33</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="Scale">
+                                                          <shadow type="math_number" id="Q8m;H@AswFmoWd?W7,Xm">
+                                                            <field name="NUM">2</field>
+                                                          </shadow>
+                                                        </value>
+                                                        <next>
+                                                          <block type="ai_lcd_ractanglecarvas" id=",k64LT@E%AYcrm;7N-zL">
+                                                            <field name="varitem">camera</field>
+                                                            <field name="rect_type">fillrect</field>
+                                                            <value name="POSA">
+                                                              <block type="lcd_set_position" id="Vx_Aqp_/!NA;Z3~[AD`6">
+                                                                <value name="POSX">
+                                                                  <shadow type="math_number" id="8IVNy+*F~*S:xUwunP{.">
+                                                                    <field name="NUM">0</field>
+                                                                  </shadow>
+                                                                  <block type="ai_model_customized_get_result" id="q7PA%qrGs6?Z*y[BKSE:">
+                                                                    <field name="varitem">i</field>
+                                                                    <field name="get_results">x</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="POSY">
+                                                                  <shadow type="math_number" id="$4aW[;Tch439Xd9cxJ:0">
+                                                                    <field name="NUM">0</field>
+                                                                  </shadow>
+                                                                  <block type="ai_model_customized_get_result" id="|r1?}%*EEO[v/P4)M.!2">
+                                                                    <field name="varitem">i</field>
+                                                                    <field name="get_results">y</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <value name="POSB">
+                                                              <block type="lcd_set_width_height" id="=5`^lN!G0@xG%o4@s8hs">
+                                                                <value name="WIDTH">
+                                                                  <shadow type="math_number" id="CBV.saT9e)JgDJi6H6FD">
+                                                                    <field name="NUM">0</field>
+                                                                  </shadow>
+                                                                  <block type="ai_model_customized_get_result" id="eZ[PdmS#z*WsU60uG+C[">
+                                                                    <field name="varitem">i</field>
+                                                                    <field name="get_results">w</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="HEIGHT">
+                                                                  <shadow type="math_number" id="=xd?Hzn$pD_o!?@`(;cr">
+                                                                    <field name="NUM">25</field>
+                                                                  </shadow>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <value name="COLOR">
+                                                              <block type="lcd_set_color" id="0zeHD3GoEAA0ioXPuRwC">
+                                                                <field name="COLOR">#33ff33</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="Scale">
+                                                              <shadow type="math_number" id=")iG;OKi:/14V2`$+a`(^">
+                                                                <field name="NUM">2</field>
+                                                              </shadow>
+                                                            </value>
+                                                            <next>
+                                                              <block type="ai_lcd_textcarvas" id="R)S4/SvdGiaD[RaZF#;3">
+                                                                <field name="varitem">camera</field>
+                                                                <value name="POSA">
+                                                                  <block type="lcd_set_position" id="MyGAv|jdv.KultE8[=Aj">
+                                                                    <value name="POSX">
+                                                                      <shadow type="math_number" id="))N1{z|Im@@o[^4E/R~[">
+                                                                        <field name="NUM">0</field>
+                                                                      </shadow>
+                                                                      <block type="ai_model_customized_get_result" id="vsSl)(W,YfX[Bu/t7_#H">
+                                                                        <field name="varitem">i</field>
+                                                                        <field name="get_results">x</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="POSY">
+                                                                      <shadow type="math_number" id="e!bBS[3^+RFnEOn8_hg$">
+                                                                        <field name="NUM">0</field>
+                                                                      </shadow>
+                                                                      <block type="ai_model_customized_get_result" id="W!H!NNF:tO.:z!)|5F3-">
+                                                                        <field name="varitem">i</field>
+                                                                        <field name="get_results">y</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="CONTENT">
+                                                                  <shadow type="text" id="i+YZgTS@{4c]!/uvTUul">
+                                                                    <field name="TEXT"></field>
+                                                                  </shadow>
+                                                                  <block type="variables_get" id="%`;p-F|uUI+v!o),ZdYZ">
+                                                                    <field name="VAR">dstr</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="COLOR">
+                                                                  <block type="lcd_set_color" id="}.Jadqajf^y]IbbDd7`3">
+                                                                    <field name="COLOR">#ffffff</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="Scale">
+                                                                  <shadow type="math_number" id="pG*7dlR}F0mpVpaECtJ/">
+                                                                    <field name="NUM">1</field>
+                                                                  </shadow>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </statement>
+                                                    <value name="IF1">
+                                                      <block type="logic_compare" id="^N[w7}}[gi[jLgOIh=kl">
+                                                        <field name="OP">EQ</field>
+                                                        <value name="A">
+                                                          <block type="variables_get" id="tV*u=aL3xGl$afI%@p^h">
+                                                            <field name="VAR">dstr</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <block type="text" id="O7E?~sAx6E6mrFM,8[#s">
+                                                            <field name="TEXT">red</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                    <statement name="DO1">
+                                                      <block type="ai_lcd_ractanglecarvas" id="HmiDSzQTT!vuxK8g/:UZ">
+                                                        <field name="varitem">camera</field>
+                                                        <field name="rect_type">rect</field>
+                                                        <value name="POSA">
+                                                          <block type="lcd_set_position" id="({0PX8yOOz~@?#RsyC|7">
+                                                            <value name="POSX">
+                                                              <shadow type="math_number" id="8IVNy+*F~*S:xUwunP{.">
+                                                                <field name="NUM">0</field>
+                                                              </shadow>
+                                                              <block type="ai_model_customized_get_result" id="o}5|,l8]M+rL%k6Gphws">
+                                                                <field name="varitem">i</field>
+                                                                <field name="get_results">x</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="POSY">
+                                                              <shadow type="math_number" id="$4aW[;Tch439Xd9cxJ:0">
+                                                                <field name="NUM">0</field>
+                                                              </shadow>
+                                                              <block type="ai_model_customized_get_result" id="T0$C?^@_B4.yAHfe_g+z">
+                                                                <field name="varitem">i</field>
+                                                                <field name="get_results">y</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="POSB">
+                                                          <block type="lcd_set_width_height" id="oakhqe%hI^WV@ru$:X}f">
+                                                            <value name="WIDTH">
+                                                              <shadow type="math_number" id="CBV.saT9e)JgDJi6H6FD">
+                                                                <field name="NUM">0</field>
+                                                              </shadow>
+                                                              <block type="ai_model_customized_get_result" id="Sx5l8E1y[^|Arvs[lp=2">
+                                                                <field name="varitem">i</field>
+                                                                <field name="get_results">w</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="HEIGHT">
+                                                              <shadow type="math_number" id="=xd?Hzn$pD_o!?@`(;cr">
+                                                                <field name="NUM">0</field>
+                                                              </shadow>
+                                                              <block type="ai_model_customized_get_result" id="I?6(}V]%znN1xEs0lGpx">
+                                                                <field name="varitem">i</field>
+                                                                <field name="get_results">h</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="COLOR">
+                                                          <block type="lcd_set_color" id="TT8PVT,gm|tEb+31.{4$">
+                                                            <field name="COLOR">#ff0000</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="Scale">
+                                                          <shadow type="math_number" id="F5_+;~O~Q6.:oDH58;od">
+                                                            <field name="NUM">2</field>
+                                                          </shadow>
+                                                        </value>
+                                                        <next>
+                                                          <block type="ai_lcd_ractanglecarvas" id="^[1aC5fb2z4B.{MA9443">
+                                                            <field name="varitem">camera</field>
+                                                            <field name="rect_type">fillrect</field>
+                                                            <value name="POSA">
+                                                              <block type="lcd_set_position" id="2WB4|(!|7T]5m(i8BnRr">
+                                                                <value name="POSX">
+                                                                  <shadow type="math_number" id="8IVNy+*F~*S:xUwunP{.">
+                                                                    <field name="NUM">0</field>
+                                                                  </shadow>
+                                                                  <block type="ai_model_customized_get_result" id="Lv1H9RuNehtkVZdG3?q@">
+                                                                    <field name="varitem">i</field>
+                                                                    <field name="get_results">x</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="POSY">
+                                                                  <shadow type="math_number" id="$4aW[;Tch439Xd9cxJ:0">
+                                                                    <field name="NUM">0</field>
+                                                                  </shadow>
+                                                                  <block type="ai_model_customized_get_result" id="RgWLiFbI;Z2e/O$ZBff[">
+                                                                    <field name="varitem">i</field>
+                                                                    <field name="get_results">y</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <value name="POSB">
+                                                              <block type="lcd_set_width_height" id="9S%tY2hR-)w.Up5*5!^k">
+                                                                <value name="WIDTH">
+                                                                  <shadow type="math_number" id="CBV.saT9e)JgDJi6H6FD">
+                                                                    <field name="NUM">0</field>
+                                                                  </shadow>
+                                                                  <block type="ai_model_customized_get_result" id="3TO9kU1LtfIP@ue.~x:,">
+                                                                    <field name="varitem">i</field>
+                                                                    <field name="get_results">w</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="HEIGHT">
+                                                                  <shadow type="math_number" id="gESdaEIiTP$Wu^P1OVm=">
+                                                                    <field name="NUM">25</field>
+                                                                  </shadow>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <value name="COLOR">
+                                                              <block type="lcd_set_color" id="83T$WHX;+^9^V6bKMo|]">
+                                                                <field name="COLOR">#ff0000</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="Scale">
+                                                              <shadow type="math_number" id=")m+M0o;j=~DKgVp7Ts3d">
+                                                                <field name="NUM">2</field>
+                                                              </shadow>
+                                                            </value>
+                                                            <next>
+                                                              <block type="ai_lcd_textcarvas" id=":La$R0y-k.LzJJ]+QM.K">
+                                                                <field name="varitem">camera</field>
+                                                                <value name="POSA">
+                                                                  <block type="lcd_set_position" id="cnnwgMK@Clju!Ph2z,z^">
+                                                                    <value name="POSX">
+                                                                      <shadow type="math_number" id="))N1{z|Im@@o[^4E/R~[">
+                                                                        <field name="NUM">0</field>
+                                                                      </shadow>
+                                                                      <block type="ai_model_customized_get_result" id="UV}w,_h#qLgT0VJNxcEm">
+                                                                        <field name="varitem">i</field>
+                                                                        <field name="get_results">x</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="POSY">
+                                                                      <shadow type="math_number" id="e!bBS[3^+RFnEOn8_hg$">
+                                                                        <field name="NUM">0</field>
+                                                                      </shadow>
+                                                                      <block type="ai_model_customized_get_result" id="dw_Enn(xwe(8rT+BHe(Z">
+                                                                        <field name="varitem">i</field>
+                                                                        <field name="get_results">y</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="CONTENT">
+                                                                  <shadow type="text" id="i+YZgTS@{4c]!/uvTUul">
+                                                                    <field name="TEXT"></field>
+                                                                  </shadow>
+                                                                  <block type="variables_get" id="D)}};CH?aml;e+OeTB`w">
+                                                                    <field name="VAR">dstr</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="COLOR">
+                                                                  <block type="lcd_set_color" id="d*Su|Q]gW3XaiCsBMB)X">
+                                                                    <field name="COLOR">#ffffff</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="Scale">
+                                                                  <shadow type="math_number" id="C$TvsS^zbbX}(`rAx1y0">
+                                                                    <field name="NUM">1</field>
+                                                                  </shadow>
+                                                                </value>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </statement>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                            <next>
+                                              <block type="ai_lcd_showcarvas_set_cord" id="f%abJlq*2F{UaUEHb?*5">
+                                                <field name="varitem">camera</field>
+                                                <value name="xy">
+                                                  <block type="ai_lcd_XY" id="ylqV@VKP=~2+kFldbw+|">
+                                                    <value name="A">
+                                                      <shadow type="math_number" id="EDHm_vXbUwIv1!tb-=Ep">
+                                                        <field name="NUM">8</field>
+                                                      </shadow>
+                                                    </value>
+                                                    <value name="B">
+                                                      <shadow type="math_number" id="N9sYXa;tj*xa%)N_Cz$P">
+                                                        <field name="NUM">8</field>
+                                                      </shadow>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="ai_lcd_showcarvas_set_display" id=";y-dYjD~6NQ^qZ+BNXjO">
+                                                    <field name="varitem">camera</field>
+                                                    <next>
+                                                      <block type="controls_if" id="BhF]~:j`|dTD_JIJYgBL">
+                                                        <value name="IF0">
+                                                          <block type="logic_compare" id="|FScKsP=}w*Jux-f(1C7">
+                                                            <field name="OP">EQ</field>
+                                                            <value name="A">
+                                                              <block type="lists_length" id="VrTdHuUuKQg$_n1ul:mh">
+                                                                <value name="VALUE">
+                                                                  <block type="ai_model_customized_if_got" id="Q#.@4uk3=)Ppz8UD,DpN"></block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <value name="B">
+                                                              <block type="math_number" id="S%v,eMBp!mLoUBFm++[~">
+                                                                <field name="NUM">1</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO0">
+                                                          <block type="controls_if" id="8X?+_i;-X+kVb4bU+ugN">
+                                                            <mutation elseif="1"></mutation>
+                                                            <value name="IF0">
+                                                              <block type="logic_compare" id="wH4ZQ(~SHt~cY;l/!=Ih">
+                                                                <field name="OP">EQ</field>
+                                                                <value name="A">
+                                                                  <block type="variables_get" id="NOO4b~%729Yb/r_YLaM+">
+                                                                    <field name="VAR">dstr</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="B">
+                                                                  <block type="text" id=";zT/}U[L-|OkYn(=4m2j">
+                                                                    <field name="TEXT">green</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="DO0">
+                                                              <block type="robot_dog_servo_movement_distance_cycle" id="T@~57tM`i.cp+xoIvbdl">
+                                                                <field name="direction">0</field>
+                                                                <value name="distance">
+                                                                  <shadow type="math_number" id="V1^PR|Y[H(3uJX5)Ki#z">
+                                                                    <field name="NUM">150</field>
+                                                                  </shadow>
+                                                                </value>
+                                                                <value name="second">
+                                                                  <shadow type="math_number" id="*,ur]+cBO`HyWaD0iFM(">
+                                                                    <field name="NUM">2</field>
+                                                                  </shadow>
+                                                                </value>
+                                                              </block>
+                                                            </statement>
+                                                            <value name="IF1">
+                                                              <block type="logic_compare" id="`gjkmqkNm.%PE%(3Gc)c">
+                                                                <field name="OP">EQ</field>
+                                                                <value name="A">
+                                                                  <block type="variables_get" id="*wYd}^fzkJxEJ`34/R*T">
+                                                                    <field name="VAR">dstr</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="B">
+                                                                  <block type="text" id="_D5xN,n^9:EzZ#M-LLc7">
+                                                                    <field name="TEXT">red</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="DO1">
+                                                              <block type="robot_dog_action" id="1bPX}mIrUL:%q6Tu]4f2">
+                                                                <field name="type">0</field>
+                                                              </block>
+                                                            </statement>
+                                                          </block>
+                                                        </statement>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </statement>
+                                        <next>
+                                          <block type="ai_lcd_showcarvas_set_cord" id="!cjTWhjIV2=)^$7Balv=">
+                                            <field name="varitem">camera</field>
+                                            <value name="xy">
+                                              <block type="ai_lcd_XY" id="Br(Nx8.R9RWhi+Z^/}a)">
+                                                <value name="A">
+                                                  <shadow type="math_number" id="QeKPwyn31VJLbW*9Pj/^">
+                                                    <field name="NUM">8</field>
+                                                  </shadow>
+                                                </value>
+                                                <value name="B">
+                                                  <shadow type="math_number" id="#4F/D+t{CUp[X*`vL?1w">
+                                                    <field name="NUM">8</field>
+                                                  </shadow>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="ai_lcd_showcarvas_set_display" id="3J=eV@k|tG;??L7,~B-`">
+                                                <field name="varitem">camera</field>
+                                                <next>
+                                                  <block type="esp32_main_controller_time_timer_init" id="o+0{#C79`L[cN?%:fISe">
+                                                    <field name="type">on_ai</field>
+                                                    <next>
+                                                      <block type="controls_if" id="}~yieB,7,Ca;K`p4Fz~i">
+                                                        <value name="IF0">
+                                                          <block type="ai_k210_button_read_pressed" id="E[^Xy_L^Oi~BFLUXWt(#">
+                                                            <field name="button_type">c</field>
+                                                          </block>
+                                                        </value>
+                                                        <statement name="DO0">
+                                                          <block type="variables_set" id="JY+),W8BNY);gbNL.Yhy">
+                                                            <field name="VAR">C_time</field>
+                                                            <value name="VALUE">
+                                                              <shadow type="math_number" id="=NvTA%JZQuz*W!^rnrc;">
+                                                                <field name="NUM">0</field>
+                                                              </shadow>
+                                                              <block type="esp32_main_controller_time_timer_get_current" id="]YK!kbvos=@+U%T/a/gx">
+                                                                <field name="type">on_ai</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="controls_whileUntil" id="Dxd;=muWo[k!6lDRM3ql">
+                                                                <field name="MODE">WHILE</field>
+                                                                <value name="BOOL">
+                                                                  <block type="ai_k210_button_read_pressed" id="ZfSlVbrLK+,{Rq?xu:2J">
+                                                                    <field name="button_type">c</field>
+                                                                  </block>
+                                                                </value>
+                                                                <statement name="DO">
+                                                                  <block type="time_delay" id="V!-ZAeAsoK^DX8Vuw`oe">
+                                                                    <value name="DELAY_TIME_MILI">
+                                                                      <block type="math_number" id="SWB]Yd/G*?8Fbs^UQ2fk">
+                                                                        <field name="NUM">1</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="controls_if" id="r/Rfn{qjF9#LTLb-*Q^6">
+                                                                        <value name="IF0">
+                                                                          <block type="logic_compare" id="tw==G}2b(K)#B4Y8aGs9">
+                                                                            <field name="OP">GTE</field>
+                                                                            <value name="A">
+                                                                              <block type="math_arithmetic" id="OIN]elX2%|A]#ogmcw?G">
+                                                                                <field name="OP">MINUS</field>
+                                                                                <value name="A">
+                                                                                  <shadow type="math_number" id="M2^(!JzZ,XE}Qz^7y#}@">
+                                                                                    <field name="NUM">1</field>
+                                                                                  </shadow>
+                                                                                  <block type="esp32_main_controller_time_timer_get_current" id="v?B`j.GIX5q{kpw??ULV">
+                                                                                    <field name="type">on_ai</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <value name="B">
+                                                                                  <shadow type="math_number" id="0-k^.F2jx$-K(@P]7uoh">
+                                                                                    <field name="NUM">1</field>
+                                                                                  </shadow>
+                                                                                  <block type="variables_get" id="mS~Wv/_!~j~PN94cFP6.">
+                                                                                    <field name="VAR">C_time</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="B">
+                                                                              <block type="math_number" id="^b4652*bIj]-}R~~CBNi">
+                                                                                <field name="NUM">1000</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <statement name="DO0">
+                                                                          <block type="robot_dog_action" id="Xf,,-+6=].C@Z^9q_r*2">
+                                                                            <field name="type">0</field>
+                                                                            <next>
+                                                                              <block type="ai_system_restart" id="ttqN-Cv_ibwfeqqY[I++"></block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </statement>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </statement>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </statement>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

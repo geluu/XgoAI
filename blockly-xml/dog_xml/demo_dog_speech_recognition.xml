@@ -1,0 +1,399 @@
+<xml xmlns="http://www.w3.org/1999/xhtml" type="AI">
+  <block type="robot_dog_setup" id="kl;c-Vx]SQKWD5T*nkow" x="172" y="-63">
+    <next>
+      <block type="robot_dog_action" id="8vLo,-wM[]h;}~WG54Fu">
+        <field name="type">0</field>
+        <next>
+          <block type="ai_lcd_screeninit" id="+(R28]k[-b~VLI^lJyKQ">
+            <next>
+              <block type="ai_lcd_createnonecarvas" id="m/V_1R|^C,Q[[7+%*Zt9">
+                <field name="varitem">canvas</field>
+                <value name="wh">
+                  <block type="lcd_set_width_height" id="R^ud641Fo5jA8)o?Di0/">
+                    <value name="WIDTH">
+                      <shadow type="math_number" id="Qz9c6`zP]Zdd@@*D,WBR">
+                        <field name="NUM">240</field>
+                      </shadow>
+                    </value>
+                    <value name="HEIGHT">
+                      <shadow type="math_number" id="U9Mh5sOpggbf?Y*CWG,Y">
+                        <field name="NUM">240</field>
+                      </shadow>
+                    </value>
+                  </block>
+                </value>
+                <next>
+                  <block type="ai_lcd_clearcanvas" id="UE`F$vkzpw:9vw^^gKFx">
+                    <field name="varitem">canvas</field>
+                    <next>
+                      <block type="speech_recognition_new_setup" id="S5BVGSs}_QW38b0tx{ru">
+                        <field name="sensitivity">20000</field>
+                        <next>
+                          <block type="esp32_main_controller_time_timer_init" id="k)!OB=`9+KU7!#P?i4~+">
+                            <field name="type">on_ai</field>
+                            <next>
+                              <block type="controls_repeat_forever" id="n!_}(C82q6wy,imI$@l$">
+                                <statement name="DO">
+                                  <block type="variables_set" id="*n6D/(9-xeE=_dtT4LHW">
+                                    <field name="VAR">speech</field>
+                                    <value name="VALUE">
+                                      <shadow type="math_number" id="q?y5.m(==4OFPuxIul{v">
+                                        <field name="NUM">0</field>
+                                      </shadow>
+                                    </value>
+                                    <next>
+                                      <block type="speech_recognition_new_start_recognition" id="daJ`;*Jv9~%8af4*Oo*k">
+                                        <next>
+                                          <block type="ai_lcd_clearcanvas" id=",5vHIaHeotR,7?;E[Q*A">
+                                            <field name="varitem">canvas</field>
+                                            <next>
+                                              <block type="ai_lcd_textcarvas" id="}TCm/VZm-XBDtRlUMFG~">
+                                                <field name="varitem">canvas</field>
+                                                <value name="POSA">
+                                                  <block type="lcd_set_position" id="!21-ujr)bRel2tCf,i0p">
+                                                    <value name="POSX">
+                                                      <shadow type="math_number" id="7m/#:/O67{P]%k/llqBC">
+                                                        <field name="NUM">0</field>
+                                                      </shadow>
+                                                    </value>
+                                                    <value name="POSY">
+                                                      <shadow type="math_number" id="nldrxlYHe$_s7wSWJ4dE">
+                                                        <field name="NUM">90</field>
+                                                      </shadow>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="CONTENT">
+                                                  <shadow type="text" id="El(n$tZdR0V{ha|YIPVz">
+                                                    <field name="TEXT">Say something</field>
+                                                  </shadow>
+                                                </value>
+                                                <value name="COLOR">
+                                                  <block type="lcd_set_color" id="$LQLoJTgX68y10{.k^kP">
+                                                    <field name="COLOR">#c0c0c0</field>
+                                                  </block>
+                                                </value>
+                                                <value name="Scale">
+                                                  <shadow type="math_number" id="Vs$Q3HO7dW_{;782Iy?v">
+                                                    <field name="NUM">2</field>
+                                                  </shadow>
+                                                </value>
+                                                <next>
+                                                  <block type="ai_lcd_showcarvas_set_display" id="}XA~7_gIO8+%b*~J,sx.">
+                                                    <field name="varitem">canvas</field>
+                                                    <next>
+                                                      <block type="speech_recognition_new_recognition_get_any_result" id="DJ(0$L::nu)c6(DC,{u;">
+                                                        <statement name="NAME">
+                                                          <block type="robot_dog_action" id="2rqSib5:Ln_?CA?c]@T{">
+                                                            <field name="type">0</field>
+                                                            <next>
+                                                              <block type="controls_if" id="EtAFqipA6a15me_Ec7R{">
+                                                                <mutation elseif="5"></mutation>
+                                                                <value name="IF0">
+                                                                  <block type="speech_recognition_new_recognition_get_result" id="?Z2LMJc$YfEb,.?BTK(s">
+                                                                    <field name="index">1</field>
+                                                                  </block>
+                                                                </value>
+                                                                <statement name="DO0">
+                                                                  <block type="variables_set" id="g^*LNV8zwUo*H8S/[C`#">
+                                                                    <field name="VAR">speech</field>
+                                                                    <value name="VALUE">
+                                                                      <shadow type="math_number" id="h4P(C{;mIyn|s.:6L$an">
+                                                                        <field name="NUM">0</field>
+                                                                      </shadow>
+                                                                      <block type="text" id="[_I0n!Z%k8ng@T^%{S-U">
+                                                                        <field name="TEXT">Eat</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="robot_dog_action" id="xVxCRS9Z0-N,?zR1QI7#">
+                                                                        <field name="type">68</field>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </statement>
+                                                                <value name="IF1">
+                                                                  <block type="speech_recognition_new_recognition_get_result" id=")dvB8|pV^%#y;|).rt55">
+                                                                    <field name="index">2</field>
+                                                                  </block>
+                                                                </value>
+                                                                <statement name="DO1">
+                                                                  <block type="variables_set" id="9q@#`B,cTJBu^~=4qV$U">
+                                                                    <field name="VAR">speech</field>
+                                                                    <value name="VALUE">
+                                                                      <shadow type="math_number" id="h4P(C{;mIyn|s.:6L$an">
+                                                                        <field name="NUM">0</field>
+                                                                      </shadow>
+                                                                      <block type="text" id="VE:f(;8O;|G9-6xxV(HW">
+                                                                        <field name="TEXT">Hand</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="robot_dog_action" id="lZ+;[V-;vkw)Dnk}r@|2">
+                                                                        <field name="type">69</field>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </statement>
+                                                                <value name="IF2">
+                                                                  <block type="speech_recognition_new_recognition_get_result" id="y?k,~i/,HCg_57ua9=-A">
+                                                                    <field name="index">3</field>
+                                                                  </block>
+                                                                </value>
+                                                                <statement name="DO2">
+                                                                  <block type="variables_set" id="Y?5m^~!R872?,@q6mh0e">
+                                                                    <field name="VAR">speech</field>
+                                                                    <value name="VALUE">
+                                                                      <shadow type="math_number" id="h4P(C{;mIyn|s.:6L$an">
+                                                                        <field name="NUM">0</field>
+                                                                      </shadow>
+                                                                      <block type="text" id="[{)PS.xGedY=P,Evf$]F">
+                                                                        <field name="TEXT">Turn</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="robot_dog_action" id="LB+fW$PcX:gC,e|293a-">
+                                                                        <field name="type">54</field>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </statement>
+                                                                <value name="IF3">
+                                                                  <block type="speech_recognition_new_recognition_get_result" id="-.aNN;ZRSU~2TkV%4nu9">
+                                                                    <field name="index">4</field>
+                                                                  </block>
+                                                                </value>
+                                                                <statement name="DO3">
+                                                                  <block type="variables_set" id="*Ryw,:F1xpq?6cz`HHz.">
+                                                                    <field name="VAR">speech</field>
+                                                                    <value name="VALUE">
+                                                                      <shadow type="math_number" id="h4P(C{;mIyn|s.:6L$an">
+                                                                        <field name="NUM">0</field>
+                                                                      </shadow>
+                                                                      <block type="text" id="DuOj(E[8a|=2|Y(olYlY">
+                                                                        <field name="TEXT">Down</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="robot_dog_action" id="1Vlt`((!Yy.bu#[jj@)|">
+                                                                        <field name="type">51</field>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </statement>
+                                                                <value name="IF4">
+                                                                  <block type="speech_recognition_new_recognition_get_result" id="FdxI*e3[jDZWZ)urF;]5">
+                                                                    <field name="index">5</field>
+                                                                  </block>
+                                                                </value>
+                                                                <statement name="DO4">
+                                                                  <block type="variables_set" id="^1$f!}@`Bq3}7*@csM;c">
+                                                                    <field name="VAR">speech</field>
+                                                                    <value name="VALUE">
+                                                                      <shadow type="math_number" id="h4P(C{;mIyn|s.:6L$an">
+                                                                        <field name="NUM">0</field>
+                                                                      </shadow>
+                                                                      <block type="text" id="9L_`SoHDe!Xjt%z){~Fl">
+                                                                        <field name="TEXT">Sit</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="robot_dog_action" id="+5bt.+q-oOE#f7TC@E5=">
+                                                                        <field name="type">62</field>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </statement>
+                                                                <value name="IF5">
+                                                                  <block type="speech_recognition_new_recognition_get_result" id="sf}+i=E?yYffn6]qFLm*">
+                                                                    <field name="index">6</field>
+                                                                  </block>
+                                                                </value>
+                                                                <statement name="DO5">
+                                                                  <block type="variables_set" id="@F$Q*ocv[hP_X9{}S`DT">
+                                                                    <field name="VAR">speech</field>
+                                                                    <value name="VALUE">
+                                                                      <shadow type="math_number" id="h4P(C{;mIyn|s.:6L$an">
+                                                                        <field name="NUM">0</field>
+                                                                      </shadow>
+                                                                      <block type="text" id="XS!H-$Q+`*E8U~a`VNAj">
+                                                                        <field name="TEXT">Bye</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="robot_dog_action" id="wPNu0b)#C]zCP-NQiFn^">
+                                                                        <field name="type">63</field>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </statement>
+                                                                <next>
+                                                                  <block type="ai_lcd_clearcanvas" id="3!PrK=,xpQ;}]:*aMX!6">
+                                                                    <field name="varitem">canvas</field>
+                                                                    <next>
+                                                                      <block type="ai_lcd_textcarvas" id="F:zUSm;?IVKNp_?8mL3l">
+                                                                        <field name="varitem">canvas</field>
+                                                                        <value name="POSA">
+                                                                          <block type="lcd_set_position" id="MXnF]OCz|5f-wBh:H8La">
+                                                                            <value name="POSX">
+                                                                              <shadow type="math_number" id="lvDx5qdBq$1%0I:w,-^y">
+                                                                                <field name="NUM">70</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                            <value name="POSY">
+                                                                              <shadow type="math_number" id="M#*C^3^Bl,y%xik[Npxk">
+                                                                                <field name="NUM">90</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="CONTENT">
+                                                                          <shadow type="text" id="aX!N9.`LKL5eS/i1z?;{">
+                                                                            <field name="TEXT">first</field>
+                                                                          </shadow>
+                                                                          <block type="variables_get" id="k}*=]p6dpMj(#c+STR5X">
+                                                                            <field name="VAR">speech</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="COLOR">
+                                                                          <block type="lcd_set_color" id="kWpUg`;s}P`..%s]fRK/">
+                                                                            <field name="COLOR">#ffffff</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="Scale">
+                                                                          <shadow type="math_number" id="}k)ye7BdPIRkTUik9rca">
+                                                                            <field name="NUM">3</field>
+                                                                          </shadow>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="ai_lcd_showcarvas_set_display" id=".~a@GX~Rn{]qK)8Js.f-">
+                                                                            <field name="varitem">canvas</field>
+                                                                            <next>
+                                                                              <block type="time_delay" id="y?_fuD0AZEc9,WsDn!49">
+                                                                                <value name="DELAY_TIME_MILI">
+                                                                                  <block type="math_number" id="P#ecNH!NJ/J/-m/}Hp3O">
+                                                                                    <field name="NUM">3000</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                              </block>
+                                                                            </next>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </statement>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+  <block type="controls_if" id=":E4Z=~L$y(Em.wCjVThQ" x="706" y="265">
+    <value name="IF0">
+      <block type="ai_k210_button_read_pressed" id="gHV+fV18~pP220:)y*,#">
+        <field name="button_type">c</field>
+      </block>
+    </value>
+    <statement name="DO0">
+      <block type="variables_set" id="A$iY@VLo/}MMhw,*DYgI">
+        <field name="VAR">C_time</field>
+        <value name="VALUE">
+          <shadow type="math_number" id="!}rs~O4GO3fsRkA._gjA">
+            <field name="NUM">0</field>
+          </shadow>
+          <block type="esp32_main_controller_time_timer_get_current" id="yOkR,hYoUwiQsL#n:?yc">
+            <field name="type">on_ai</field>
+          </block>
+        </value>
+        <next>
+          <block type="controls_whileUntil" id="IdIhAP235Zq|NJ2O]mVB">
+            <field name="MODE">WHILE</field>
+            <value name="BOOL">
+              <block type="ai_k210_button_read_pressed" id="`wcO^nGVSA^Q6#K!Xvfe">
+                <field name="button_type">c</field>
+              </block>
+            </value>
+            <statement name="DO">
+              <block type="time_delay" id="Y/1YU`sbx:cmSZ,SU[vU">
+                <value name="DELAY_TIME_MILI">
+                  <block type="math_number" id="Z?%ceCu^]s{zy5KIn;4E">
+                    <field name="NUM">1</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_if" id="M6CM)o$?_`rM6)wIZJVW">
+                    <value name="IF0">
+                      <block type="logic_compare" id="@c{YV|b7HVsxQq~!B|U^">
+                        <field name="OP">GTE</field>
+                        <value name="A">
+                          <block type="math_arithmetic" id=":9t%LIAoJN)=.P/Ug$Yv">
+                            <field name="OP">MINUS</field>
+                            <value name="A">
+                              <shadow type="math_number" id="R9;)hALj9J~c)85p=(JE">
+                                <field name="NUM">1</field>
+                              </shadow>
+                              <block type="esp32_main_controller_time_timer_get_current" id="OBTyqQihF(8bBayX~S0O">
+                                <field name="type">on_ai</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <shadow type="math_number" id="vZSQqXNq(~[VC1HE5{RE">
+                                <field name="NUM">1</field>
+                              </shadow>
+                              <block type="variables_get" id="m|OdT?WVl^83Ah6I`V=J">
+                                <field name="VAR">C_time</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                        <value name="B">
+                          <block type="math_number" id="%jPqD!nMgFHW3o$jhR#z">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                    <statement name="DO0">
+                      <block type="robot_dog_action" id="w,t0ll.QneF6m.}bvYAC">
+                        <field name="type">0</field>
+                        <next>
+                          <block type="ai_system_restart" id="5X@WogkQroJx?@Z!q0=J"></block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </statement>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>

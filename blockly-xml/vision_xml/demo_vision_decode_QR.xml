@@ -1,0 +1,708 @@
+<xml xmlns="http://www.w3.org/1999/xhtml" type="AI">
+  <block type="robot_dog_setup" id="b/5H)G6|hH{dKYC}M7hK" x="86" y="264">
+    <next>
+      <block type="ai_lcd_screeninit" id="5jrwS;74OAkNxto7$Jmw">
+        <next>
+          <block type="ai_camera_init" id="-w|reK_rA[23jP1v;QL;">
+            <field name="DEGREE">QVGA</field>
+            <field name="DEGREE1">RGB565</field>
+            <next>
+              <block type="ai_camera_image_property_change" id=")/|]=lH6)`QkB,F~%5M$">
+                <field name="image_property">set_hmirror</field>
+                <field name="DEGREE">True</field>
+                <next>
+                  <block type="ai_camera_windows" id="il3}v4ee6I`DWnMw.?0M">
+                    <field name="window_w">224</field>
+                    <field name="window_h">224</field>
+                    <next>
+                      <block type="variables_set" id="UP(7g+^[hck;4-7/Xc`X">
+                        <field name="VAR">qrcode_string</field>
+                        <value name="VALUE">
+                          <shadow type="math_number" id="[JiT8-_Rd}cjkg[[LT4-">
+                            <field name="NUM">0</field>
+                          </shadow>
+                          <block type="text" id=":^%}.okj[wI*Re}oE.IR">
+                            <field name="TEXT"></field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="variables_set" id="i/29$ruk*#3?!+so.-#)">
+                            <field name="VAR">show_state</field>
+                            <value name="VALUE">
+                              <shadow type="math_number" id="%{I$6?6bNIi3^G-jvmgD">
+                                <field name="NUM">0</field>
+                              </shadow>
+                            </value>
+                            <next>
+                              <block type="controls_repeat_forever" id="0mdX5FiL6?l^R+$F-dzM">
+                                <statement name="DO">
+                                  <block type="variables_set" id="HcmyT(_p-t[dgimvPb9a">
+                                    <field name="VAR">camera</field>
+                                    <value name="VALUE">
+                                      <shadow type="math_number" id="YuT@ROTeP+WF8Fxoe^*?">
+                                        <field name="NUM">0</field>
+                                      </shadow>
+                                      <block type="ai_camera_snapshot" id="UyHhG6VOB%KV#OK(^gag"></block>
+                                    </value>
+                                    <next>
+                                      <block type="variables_set" id="$y-NyWPYiD5VkcUxuZ-{">
+                                        <field name="VAR">qrcode_find</field>
+                                        <value name="VALUE">
+                                          <shadow type="math_number" id="^]*pr]fjw$aX9E8,.YdA">
+                                            <field name="NUM">0</field>
+                                          </shadow>
+                                          <block type="ai_vision_find_qrcode" id="VqC4~ZFZ`4^mp_H%RgdC">
+                                            <field name="varitem">camera</field>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="controls_if" id="`|]a$NH=hb3Uf])k=@9?">
+                                            <mutation elseif="1"></mutation>
+                                            <value name="IF0">
+                                              <block type="logic_compare" id="-l,|A5r5_}PRW3l:ao5/">
+                                                <field name="OP">GT</field>
+                                                <value name="A">
+                                                  <block type="lists_length" id="2m?XP`*~$4h3P$f646Aa">
+                                                    <value name="VALUE">
+                                                      <block type="variables_get" id=":c)5}i`htvBv-{l~+^yq">
+                                                        <field name="VAR">qrcode_find</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="math_number" id="qJHIpL_jcUTu5|39H!Li">
+                                                    <field name="NUM">0</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO0">
+                                              <block type="variables_set" id="@7x[kJ_4de^0tnBcdrb_">
+                                                <field name="VAR">first_qrcode</field>
+                                                <value name="VALUE">
+                                                  <shadow type="math_number" id="3@~-y59pYU!XFxqwnOtO">
+                                                    <field name="NUM">0</field>
+                                                  </shadow>
+                                                  <block type="list_order_item" id="W|Ovnt[?p(y_.xe:!jE$">
+                                                    <field name="list_order">[</field>
+                                                    <value name="list_name">
+                                                      <shadow type="text_list" id="ij^Wwh}VLmXzZwxq0y6d">
+                                                        <field name="TEXT"></field>
+                                                      </shadow>
+                                                      <block type="variables_get" id="sgWKPn[C.CBMLpGPHU{b">
+                                                        <field name="VAR">qrcode_find</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="list_order_item">
+                                                      <shadow type="math_number" id="lG!Vbq-Nfhlvr,]jIj=0">
+                                                        <field name="NUM">0</field>
+                                                      </shadow>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="variables_set" id=".lRN%[[a|5*fmTrf/`p;">
+                                                    <field name="VAR">qrcode_string</field>
+                                                    <value name="VALUE">
+                                                      <shadow type="math_number" id="???b!,@hqHL`FHEl|(dN">
+                                                        <field name="NUM">0</field>
+                                                      </shadow>
+                                                      <block type="ai_vision_qrcode_get_info" id="D0%c}N{LnSL.c5SFUzjp">
+                                                        <field name="varitem">first_qrcode</field>
+                                                        <field name="get_info">payload</field>
+                                                      </block>
+                                                    </value>
+                                                    <next>
+                                                      <block type="ai_lcd_ractanglecarvas" id="Q661H/Ep~maS_ED/:wU_">
+                                                        <field name="varitem">camera</field>
+                                                        <field name="rect_type">rect</field>
+                                                        <value name="POSA">
+                                                          <block type="lcd_set_position" id="~ljw5v3U0qHrshl[oto0">
+                                                            <value name="POSX">
+                                                              <block type="ai_vision_qrcode_get_info" id="Hq=5ngCJ1Ju,Dl{IT1O]">
+                                                                <field name="varitem">first_qrcode</field>
+                                                                <field name="get_info">x</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="POSY">
+                                                              <block type="ai_vision_qrcode_get_info" id="E;%RHet{.LB}P?%FST%D">
+                                                                <field name="varitem">first_qrcode</field>
+                                                                <field name="get_info">y</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="POSB">
+                                                          <block type="lcd_set_width_height" id="KY3KlYW19r;QboRZ;Sf@">
+                                                            <value name="WIDTH">
+                                                              <block type="ai_vision_qrcode_get_info" id="MP/Xu8V$[n8fA.||Xv~]">
+                                                                <field name="varitem">first_qrcode</field>
+                                                                <field name="get_info">w</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="HEIGHT">
+                                                              <block type="ai_vision_qrcode_get_info" id="01(WWqxk;54?l(-c%R@}">
+                                                                <field name="varitem">first_qrcode</field>
+                                                                <field name="get_info">h</field>
+                                                              </block>
+                                                            </value>
+                                                          </block>
+                                                        </value>
+                                                        <value name="COLOR">
+                                                          <block type="lcd_set_color" id="+RrUr9cE.C:;P/kj=;pL">
+                                                            <field name="COLOR">#ff0000</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="Scale">
+                                                          <block type="math_number" id="8FGal}JpnORpy]rwVy/R">
+                                                            <field name="NUM">2</field>
+                                                          </block>
+                                                        </value>
+                                                        <next>
+                                                          <block type="ai_lcd_ractanglecarvas" id="c#mQC0}*S.VE57tH4]/_">
+                                                            <field name="varitem">camera</field>
+                                                            <field name="rect_type">fillrect</field>
+                                                            <value name="POSA">
+                                                              <block type="lcd_set_position" id="V{6CK3P))XEyR_V=UYor">
+                                                                <value name="POSX">
+                                                                  <block type="ai_vision_qrcode_get_info" id="D$tZ=*Pnn9X(HoQ-[#-Z">
+                                                                    <field name="varitem">first_qrcode</field>
+                                                                    <field name="get_info">x</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="POSY">
+                                                                  <block type="math_arithmetic" id="^S@a8sLVn@c|Df0}u_p1">
+                                                                    <field name="OP">MINUS</field>
+                                                                    <value name="A">
+                                                                      <shadow type="math_number" id="JanohO={EEpHWkgw%BL;">
+                                                                        <field name="NUM">1</field>
+                                                                      </shadow>
+                                                                      <block type="ai_vision_qrcode_get_info" id="dxg7F,7.KbQz%lW:_,(i">
+                                                                        <field name="varitem">first_qrcode</field>
+                                                                        <field name="get_info">y</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="B">
+                                                                      <shadow type="math_number" id=".@|/qdqaM[%:MH3B8|M|">
+                                                                        <field name="NUM">30</field>
+                                                                      </shadow>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <value name="POSB">
+                                                              <block type="lcd_set_width_height" id="0]Mr-$L)MzF!GqNc*hVP">
+                                                                <value name="WIDTH">
+                                                                  <block type="ai_vision_qrcode_get_info" id="u~%b,QfE)|.4$Jghi2:h">
+                                                                    <field name="varitem">first_qrcode</field>
+                                                                    <field name="get_info">w</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="HEIGHT">
+                                                                  <block type="math_number" id="nA$!x|Y;|i7$a)`XTnQv">
+                                                                    <field name="NUM">30</field>
+                                                                  </block>
+                                                                </value>
+                                                              </block>
+                                                            </value>
+                                                            <value name="COLOR">
+                                                              <block type="lcd_set_color" id="k!Bg{BDFKcG.rlE=k9xN">
+                                                                <field name="COLOR">#ff0000</field>
+                                                              </block>
+                                                            </value>
+                                                            <value name="Scale">
+                                                              <block type="math_number" id="We!ZP;|Npto/nMlG8B*g">
+                                                                <field name="NUM">1</field>
+                                                              </block>
+                                                            </value>
+                                                            <next>
+                                                              <block type="ai_lcd_textcarvas" id="oAQ]dNY]].A2qy3-9qhh">
+                                                                <field name="varitem">camera</field>
+                                                                <value name="POSA">
+                                                                  <block type="lcd_set_position" id="o+z=`(0vG_|+Mtpe`[#m">
+                                                                    <value name="POSX">
+                                                                      <block type="ai_vision_qrcode_get_info" id="+e.av.-?OT5gvjVH)-wO">
+                                                                        <field name="varitem">first_qrcode</field>
+                                                                        <field name="get_info">x</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <value name="POSY">
+                                                                      <block type="math_arithmetic" id="UQ=7.;Je=zCodm:#B0Qn">
+                                                                        <field name="OP">MINUS</field>
+                                                                        <value name="A">
+                                                                          <shadow type="math_number" id="Rr_$B8qc|4(:#+%,WoWP">
+                                                                            <field name="NUM">1</field>
+                                                                          </shadow>
+                                                                          <block type="ai_vision_qrcode_get_info" id="q7A}6{$$l{#QR!RtL9az">
+                                                                            <field name="varitem">first_qrcode</field>
+                                                                            <field name="get_info">y</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <value name="B">
+                                                                          <shadow type="math_number" id="dqdJ.8Rpn[upQbJYf(}7">
+                                                                            <field name="NUM">26</field>
+                                                                          </shadow>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="CONTENT">
+                                                                  <block type="text_join" id="fA5.f`S.w8eN~zY|M8)@">
+                                                                    <mutation items="1"></mutation>
+                                                                    <value name="ADD0">
+                                                                      <block type="variables_get" id="0U1(ULa=cOr,.+^)~^io">
+                                                                        <field name="VAR">qrcode_string</field>
+                                                                      </block>
+                                                                    </value>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="COLOR">
+                                                                  <block type="lcd_set_color" id="F;oXrni,}q.o%6u/JK]k">
+                                                                    <field name="COLOR">#ffffff</field>
+                                                                  </block>
+                                                                </value>
+                                                                <value name="Scale">
+                                                                  <block type="math_number" id="[Fs#5BZYa#/=~ELPhou?">
+                                                                    <field name="NUM">1</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="variables_set" id="4UmLg[X^MMl63i9u9yPu">
+                                                                    <field name="VAR">qrcode_string</field>
+                                                                    <value name="VALUE">
+                                                                      <shadow type="math_number" id="iThYw8SM8.sexQU]J)y^">
+                                                                        <field name="NUM">0</field>
+                                                                      </shadow>
+                                                                      <block type="text_changeCase" id="_OFshdSHrcz#Q#;l{2NO">
+                                                                        <field name="CASE">LOWERCASE</field>
+                                                                        <value name="TEXT">
+                                                                          <shadow type="text" id="!-w6S@nnw`9p|AH%HXhQ">
+                                                                            <field name="TEXT"></field>
+                                                                          </shadow>
+                                                                          <block type="variables_get" id="T3^~.crA;8=v(vg-}?Q@">
+                                                                            <field name="VAR">qrcode_string</field>
+                                                                          </block>
+                                                                        </value>
+                                                                      </block>
+                                                                    </value>
+                                                                    <next>
+                                                                      <block type="controls_if" id="gyP1TrK|i{c~lo]=mD]L">
+                                                                        <mutation elseif="6"></mutation>
+                                                                        <value name="IF0">
+                                                                          <block type="logic_compare" id="+xIq4,DRcGyxfIbAC:/c">
+                                                                            <field name="OP">EQ</field>
+                                                                            <value name="A">
+                                                                              <block type="variables_get" id="C|P(^B^b0!SGoh#e73v2">
+                                                                                <field name="VAR">qrcode_string</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="B">
+                                                                              <block type="text" id="Lpiq2.GD?-?H{(w^V;2D">
+                                                                                <field name="TEXT">hello</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <statement name="DO0">
+                                                                          <block type="robot_dog_action" id="4^GrlEnIK1_G9^08$@^:">
+                                                                            <field name="type">63</field>
+                                                                          </block>
+                                                                        </statement>
+                                                                        <value name="IF1">
+                                                                          <block type="logic_compare" id="d_$bxXDx2(0O@=h{cnAT">
+                                                                            <field name="OP">EQ</field>
+                                                                            <value name="A">
+                                                                              <block type="variables_get" id="|zPu7StDco3uDf)gq:o4">
+                                                                                <field name="VAR">qrcode_string</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="B">
+                                                                              <block type="text" id="Zg9_(w3qv7!#Y?j~2^/y">
+                                                                                <field name="TEXT">sit down</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <statement name="DO1">
+                                                                          <block type="robot_dog_action" id="cp6Rm6(hF{yqR=%m#IY-">
+                                                                            <field name="type">62</field>
+                                                                          </block>
+                                                                        </statement>
+                                                                        <value name="IF2">
+                                                                          <block type="logic_compare" id="HvMayJSw3xY6`m.`C){,">
+                                                                            <field name="OP">EQ</field>
+                                                                            <value name="A">
+                                                                              <block type="variables_get" id="ZdA;4y9R4!8mmq,!imuz">
+                                                                                <field name="VAR">qrcode_string</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="B">
+                                                                              <block type="text" id="GOflOTY@-4}=Z^]`;$A3">
+                                                                                <field name="TEXT">go forward</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <statement name="DO2">
+                                                                          <block type="robot_dog_servo_movement_distance_cycle" id="f~-1Xh`,+%arS3)yvg|s">
+                                                                            <field name="direction">0</field>
+                                                                            <value name="distance">
+                                                                              <shadow type="math_number" id="e*Sbill/g~0%fO$NgL#{">
+                                                                                <field name="NUM">170</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                            <value name="second">
+                                                                              <shadow type="math_number" id="15/ZKLbu2?jFJw^}NP4p">
+                                                                                <field name="NUM">2</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                          </block>
+                                                                        </statement>
+                                                                        <value name="IF3">
+                                                                          <block type="logic_compare" id="_UgtsafS]Bo}xV1+{WCJ">
+                                                                            <field name="OP">EQ</field>
+                                                                            <value name="A">
+                                                                              <block type="variables_get" id="bUpPK0WdaE7@367:}wiA">
+                                                                                <field name="VAR">qrcode_string</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="B">
+                                                                              <block type="text" id="G#G*irSLc/FB~L*$6/JC">
+                                                                                <field name="TEXT">go backward</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <statement name="DO3">
+                                                                          <block type="robot_dog_servo_movement_distance_cycle" id="q-e{h*s1PwsTx_9`zs=O">
+                                                                            <field name="direction">1</field>
+                                                                            <value name="distance">
+                                                                              <shadow type="math_number" id="Q,hCVG+S}c$+vRz-+k}?">
+                                                                                <field name="NUM">80</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                            <value name="second">
+                                                                              <shadow type="math_number" id="s+kHt|,lMyj(.+Pvd*hb">
+                                                                                <field name="NUM">2</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                          </block>
+                                                                        </statement>
+                                                                        <value name="IF4">
+                                                                          <block type="logic_compare" id="!t,COHV_8Q=lD|RADDNE">
+                                                                            <field name="OP">EQ</field>
+                                                                            <value name="A">
+                                                                              <block type="variables_get" id="V8}JHxF(8YYRjztJo8ze">
+                                                                                <field name="VAR">qrcode_string</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="B">
+                                                                              <block type="text" id="0_pzf{=?C[cjzbbI_C*R">
+                                                                                <field name="TEXT">turn left</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <statement name="DO4">
+                                                                          <block type="robot_dog_servo_movement_rotate_cycle" id="e5F-e*ANYI#=|FK*f7ca">
+                                                                            <field name="direction">0</field>
+                                                                            <value name="rotate_speed">
+                                                                              <shadow type="math_number" id="%XyQg;1.PlOa[xNCEa;B">
+                                                                                <field name="NUM">198</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                            <value name="second">
+                                                                              <shadow type="math_number" id="5n7S/FeUXIBN@|VdPtS#">
+                                                                                <field name="NUM">2</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                          </block>
+                                                                        </statement>
+                                                                        <value name="IF5">
+                                                                          <block type="logic_compare" id=")ZzW8DJef`IWuYc{f_D/">
+                                                                            <field name="OP">EQ</field>
+                                                                            <value name="A">
+                                                                              <block type="variables_get" id="MC$g/p?C29g(Gk0$zdZl">
+                                                                                <field name="VAR">qrcode_string</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="B">
+                                                                              <block type="text" id="x9Jz$Ceh5{x{j12u^|q{">
+                                                                                <field name="TEXT">turn right</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <statement name="DO5">
+                                                                          <block type="robot_dog_servo_movement_rotate_cycle" id="|AMUC(K$kT$P+w[?dvD/">
+                                                                            <field name="direction">1</field>
+                                                                            <value name="rotate_speed">
+                                                                              <shadow type="math_number" id="8eG@PG0v=:Q]5[%`$eH!">
+                                                                                <field name="NUM">58</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                            <value name="second">
+                                                                              <shadow type="math_number" id="%UET?dz,(dm#9E29ap!y">
+                                                                                <field name="NUM">2</field>
+                                                                              </shadow>
+                                                                            </value>
+                                                                          </block>
+                                                                        </statement>
+                                                                        <value name="IF6">
+                                                                          <block type="logic_compare" id="i?nU*#EW`eX7r,^ZjL4;">
+                                                                            <field name="OP">EQ</field>
+                                                                            <value name="A">
+                                                                              <block type="variables_get" id="B9|yU19`UkyrnMqfZ5[q">
+                                                                                <field name="VAR">qrcode_string</field>
+                                                                              </block>
+                                                                            </value>
+                                                                            <value name="B">
+                                                                              <block type="text" id="p4)Wn@^r%$A3zbn$ywuw">
+                                                                                <field name="TEXT">show</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </value>
+                                                                        <statement name="DO6">
+                                                                          <block type="controls_if" id="GKs|w#s$RQh.)$`3s96{">
+                                                                            <mutation else="1"></mutation>
+                                                                            <value name="IF0">
+                                                                              <block type="logic_compare" id=",WJm]0:ELGs7rn_a{AaE">
+                                                                                <field name="OP">EQ</field>
+                                                                                <value name="A">
+                                                                                  <block type="variables_get" id="=KV@;I8oJRdNUmv!}Q=t">
+                                                                                    <field name="VAR">show_state</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <value name="B">
+                                                                                  <block type="math_number" id="rMn#mL`80GtqmI]@#5Wt">
+                                                                                    <field name="NUM">0</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                              </block>
+                                                                            </value>
+                                                                            <statement name="DO0">
+                                                                              <block type="robot_dog_open_performance_mode" id="u:cYuRBm9=Rtr[([iGL,">
+                                                                                <field name="action">open</field>
+                                                                                <next>
+                                                                                  <block type="variables_set" id="CgovKAl1)PF7wbx9l-|Q">
+                                                                                    <field name="VAR">show_state</field>
+                                                                                    <value name="VALUE">
+                                                                                      <shadow type="math_number" id="zy,rjG1`(n``uCgDz;ka">
+                                                                                        <field name="NUM">1</field>
+                                                                                      </shadow>
+                                                                                    </value>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </statement>
+                                                                            <statement name="ELSE">
+                                                                              <block type="robot_dog_open_performance_mode" id="`d_(C(}f16K!{w1S;vqo">
+                                                                                <field name="action">close</field>
+                                                                                <next>
+                                                                                  <block type="variables_set" id="ZnC~8145Nq!7+hlC_}Yc">
+                                                                                    <field name="VAR">show_state</field>
+                                                                                    <value name="VALUE">
+                                                                                      <shadow type="math_number" id="s4`U?I]n5^plOBu`~M@3">
+                                                                                        <field name="NUM">0</field>
+                                                                                      </shadow>
+                                                                                    </value>
+                                                                                  </block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </statement>
+                                                                          </block>
+                                                                        </statement>
+                                                                        <next>
+                                                                          <block type="time_delay" id="tCfTCKJ9ZH@5$VwD=}nm">
+                                                                            <value name="DELAY_TIME_MILI">
+                                                                              <block type="math_number" id="1X+k8t4tdJG1N9V[)%)f">
+                                                                                <field name="NUM">1000</field>
+                                                                              </block>
+                                                                            </value>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </next>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </next>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </statement>
+                                            <value name="IF1">
+                                              <block type="logic_compare" id="LRbM#;%gy[Q6k.k3`qw$">
+                                                <field name="OP">LTE</field>
+                                                <value name="A">
+                                                  <block type="lists_length" id="s*6Q88#mVHU(4V#qzH[R">
+                                                    <value name="VALUE">
+                                                      <block type="variables_get" id="I,#7aXrZ@q8z#rzE{@yL">
+                                                        <field name="VAR">qrcode_find</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="B">
+                                                  <block type="math_number" id=";NHUOG8r54EY~c$REUfm">
+                                                    <field name="NUM">0</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <statement name="DO1">
+                                              <block type="variables_set" id="j?CMiiHF++g;a?E5A)7s">
+                                                <field name="VAR">qrcode_string</field>
+                                                <value name="VALUE">
+                                                  <shadow type="math_number" id="[JiT8-_Rd}cjkg[[LT4-">
+                                                    <field name="NUM">0</field>
+                                                  </shadow>
+                                                  <block type="text" id="6zXsM+VFRzGEa{yMPl|u">
+                                                    <field name="TEXT"></field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </statement>
+                                            <next>
+                                              <block type="ai_lcd_showcarvas_set_cord" id="~_K/T$@+(jT{VJZYLw~_">
+                                                <field name="varitem">camera</field>
+                                                <value name="xy">
+                                                  <block type="ai_lcd_XY" id="tt}SuE^P@OpnYQCaw1(r">
+                                                    <value name="A">
+                                                      <shadow type="math_number" id="u%KoDHe.-evW8;]8+~U2">
+                                                        <field name="NUM">8</field>
+                                                      </shadow>
+                                                    </value>
+                                                    <value name="B">
+                                                      <shadow type="math_number" id="DQQK-=;|3=qDpq*$oQKq">
+                                                        <field name="NUM">8</field>
+                                                      </shadow>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <next>
+                                                  <block type="ai_lcd_showcarvas_set_display" id="_eTk8]+QeVwW5^E.:3|c">
+                                                    <field name="varitem">camera</field>
+                                                    <next>
+                                                      <block type="esp32_main_controller_time_timer_init" id="W+T{G$Vv}H,;([13F%5D">
+                                                        <field name="type">on_ai</field>
+                                                        <next>
+                                                          <block type="controls_if" id="V+`4HLn%uVpFSiYPj4VP">
+                                                            <value name="IF0">
+                                                              <block type="ai_k210_button_read_pressed" id="pGT.u|gyVI$oiafKd+8T">
+                                                                <field name="button_type">c</field>
+                                                              </block>
+                                                            </value>
+                                                            <statement name="DO0">
+                                                              <block type="variables_set" id="r+DLe`x!TaYBwpdYA90g">
+                                                                <field name="VAR">C_time</field>
+                                                                <value name="VALUE">
+                                                                  <shadow type="math_number" id="%#^g%F/1$~92X%yp*0an">
+                                                                    <field name="NUM">0</field>
+                                                                  </shadow>
+                                                                  <block type="esp32_main_controller_time_timer_get_current" id="fvxSf(~rc$G[93=;A-_,">
+                                                                    <field name="type">on_ai</field>
+                                                                  </block>
+                                                                </value>
+                                                                <next>
+                                                                  <block type="controls_whileUntil" id="6V;XQM.t/Z+8J?Ad]Dcu">
+                                                                    <field name="MODE">WHILE</field>
+                                                                    <value name="BOOL">
+                                                                      <block type="ai_k210_button_read_pressed" id="4G`}mk}tZQ4t[:iR^O[K">
+                                                                        <field name="button_type">c</field>
+                                                                      </block>
+                                                                    </value>
+                                                                    <statement name="DO">
+                                                                      <block type="time_delay" id="Rf`-JHa1)^5{R,.D@@hA">
+                                                                        <value name="DELAY_TIME_MILI">
+                                                                          <block type="math_number" id="G#o%bm_0@$[Omm7;N9VS">
+                                                                            <field name="NUM">1</field>
+                                                                          </block>
+                                                                        </value>
+                                                                        <next>
+                                                                          <block type="controls_if" id=")U5qJ(9sE[902+g@}uUn">
+                                                                            <value name="IF0">
+                                                                              <block type="logic_compare" id="@;o$0k=b+^Br_=$jr|2}">
+                                                                                <field name="OP">GTE</field>
+                                                                                <value name="A">
+                                                                                  <block type="math_arithmetic" id="ct#Oa!Gn|w!@QOtNqtbP">
+                                                                                    <field name="OP">MINUS</field>
+                                                                                    <value name="A">
+                                                                                      <shadow type="math_number" id=",ogWXL-:-s(q_FB+]LiF">
+                                                                                        <field name="NUM">1</field>
+                                                                                      </shadow>
+                                                                                      <block type="esp32_main_controller_time_timer_get_current" id="3b:a~-WI,)I=4AynFJoO">
+                                                                                        <field name="type">on_ai</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                    <value name="B">
+                                                                                      <shadow type="math_number" id="wRO7JSq4s87.{nywGwi%">
+                                                                                        <field name="NUM">1</field>
+                                                                                      </shadow>
+                                                                                      <block type="variables_get" id="lB}nHnJ#~S/|-uqT-$av">
+                                                                                        <field name="VAR">C_time</field>
+                                                                                      </block>
+                                                                                    </value>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <value name="B">
+                                                                                  <block type="math_number" id="RRd@RXz1f`.m$I,X)yrt">
+                                                                                    <field name="NUM">1000</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                              </block>
+                                                                            </value>
+                                                                            <statement name="DO0">
+                                                                              <block type="robot_dog_action" id="K$!It,Sbd3Qu~!pis8D?">
+                                                                                <field name="type">0</field>
+                                                                                <next>
+                                                                                  <block type="ai_system_restart" id="(,hMH^%.)DYYe)5C;WTf"></block>
+                                                                                </next>
+                                                                              </block>
+                                                                            </statement>
+                                                                          </block>
+                                                                        </next>
+                                                                      </block>
+                                                                    </statement>
+                                                                  </block>
+                                                                </next>
+                                                              </block>
+                                                            </statement>
+                                                          </block>
+                                                        </next>
+                                                      </block>
+                                                    </next>
+                                                  </block>
+                                                </next>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </statement>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -24,7 +24,7 @@
 
 ​	下载“CocoBlockly X 二代模块上传插件”（橙色图标）
 
-![DownloadCoco](https://github.com/Xgorobot/XgoAI/blob/cs/readmeImages/AIBlocklyUpdate.png)
+![DownloadCoco](readmeImages/AIBlocklyUpdate.png)
 
 
 

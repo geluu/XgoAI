@@ -1,0 +1,86 @@
+<xml xmlns="http://www.w3.org/1999/xhtml" type="AI">
+  <block type="robot_dog_setup" id="5j+NaE~~N1l-[x55T,5a" x="61" y="143">
+    <next>
+      <block type="controls_repeat_forever" id="8(?T`WEM+yHuSK^B~9Y;">
+        <statement name="DO">
+          <block type="ai_model_class" id="sS[rA4?dn4NU^q.cMBOj">
+            <value name="class_input">
+              <block type="lists_create_with" id="rfjwF`D*0-}WKz|x5d;?">
+                <mutation items="2"></mutation>
+                <value name="ADD0">
+                  <block type="text" id="-!ot+N]Er)K/X7.ZF`I.">
+                    <field name="TEXT">骨头</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="4Y~(vMS`e9+d,BnYp[{w">
+                    <field name="TEXT">青菜</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="controls_if" id="OA.k_J23Wkw=D_gat;@E">
+                <mutation elseif="1"></mutation>
+                <value name="IF0">
+                  <block type="logic_compare" id="M3tGgu%A0]31exE$SUQm">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="text" id="y!Pua748g^;6pm*igj4Y">
+                        <field name="TEXT">骨头</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="ai_model_getclass" id="GYK;Xf/ChGVjQc(7j#.F"></block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO0">
+                  <block type="robot_dog_action" id="^n1,5c:j[ng:ko|.2Qqc">
+                    <field name="type">67</field>
+                    <next>
+                      <block type="time_delay" id="Ff!h*szAu$HHy~A1]*D)">
+                        <value name="DELAY_TIME_MILI">
+                          <block type="math_number" id="fsDwI|,{MgzE[2gjWr~t">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+                <value name="IF1">
+                  <block type="logic_compare" id="K3Dta05QG4j$qA6AL%,w">
+                    <field name="OP">EQ</field>
+                    <value name="A">
+                      <block type="text" id="R46p0Csv)PvHYbPu-4P}">
+                        <field name="TEXT">青菜</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <block type="ai_model_getclass" id="d.[7/}u?/Fj2cj03J6]A"></block>
+                    </value>
+                  </block>
+                </value>
+                <statement name="DO1">
+                  <block type="robot_dog_action" id="Y!X`b0;YPgn5jjRDSBuR">
+                    <field name="type">52</field>
+                    <next>
+                      <block type="time_delay" id="zeQ3VPfKrKABCd}CHR=M">
+                        <value name="DELAY_TIME_MILI">
+                          <block type="math_number" id="EDjwo8KVBYYAjVy^e_Ef">
+                            <field name="NUM">1000</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>

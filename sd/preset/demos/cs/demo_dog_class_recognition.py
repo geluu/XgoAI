@@ -76,7 +76,7 @@ def mapping(input_value,i_min,i_max,o_min,o_max):
     return int(dat)
 
 ############### config #################
-class_names = ["骨头", "青菜"]
+class_names = ["Bone", "Other"]
 class_num = len(class_names)
 sample_single_num = 5
 sample_num = len(class_names) * sample_single_num
@@ -162,11 +162,11 @@ while True:
                 img.draw_rectangle(-2,0, len("press right key to cap "+class_names[cap_num])*10+4 , 24, fill=True, color=lcd.RED)
                 img = lcd_draw_string(img, 0, 2, "press right key to cap "+class_names[cap_num], color=lcd.WHITE,scale=2,mono_space=False)
             elif cap_num < class_num + sample_single_num * 1:
-                img.draw_rectangle(-2,0, len("right key to cap 骨头{}".format(cap_num-class_num-sample_single_num*0))*10+4 , 24, fill=True, color=lcd.RED)
-                img = lcd_draw_string(img, 0, 2, "right key to cap 骨头{}".format(cap_num-class_num-sample_single_num*0), color=lcd.WHITE,scale=2,mono_space=False)
+                img.draw_rectangle(-2,0, len("right key to cap Bone{}".format(cap_num-class_num-sample_single_num*0))*10+4 , 24, fill=True, color=lcd.RED)
+                img = lcd_draw_string(img, 0, 2, "right key to cap Bone{}".format(cap_num-class_num-sample_single_num*0), color=lcd.WHITE,scale=2,mono_space=False)
             elif cap_num < class_num + sample_single_num * 2:
-                img.draw_rectangle(-2,0, len("right key to cap 青菜{}".format(cap_num-class_num-sample_single_num*1))*10+4 , 24, fill=True, color=lcd.RED)
-                img = lcd_draw_string(img, 0, 2, "right key to cap 青菜{}".format(cap_num-class_num-sample_single_num*1), color=lcd.WHITE,scale=2,mono_space=False)
+                img.draw_rectangle(-2,0, len("right key to cap Other{}".format(cap_num-class_num-sample_single_num*1))*10+4 , 24, fill=True, color=lcd.RED)
+                img = lcd_draw_string(img, 0, 2, "right key to cap Other{}".format(cap_num-class_num-sample_single_num*1), color=lcd.WHITE,scale=2,mono_space=False)
     # train and predict
     if train_status == 0:
         if cap_num >= class_num + sample_num:
@@ -198,11 +198,11 @@ while True:
                 time.sleep_ms(20)
                 machine.reset()
     if min_dist < THRESHOLD :
-        if "骨头" == (class_names[res_index] if (res_index != -1 and len(class_names) > res_index) else ""):
+        if "Bone" == (class_names[res_index] if (res_index != -1 and len(class_names) > res_index) else ""):
             robot_dog_setup_uart.write(bytes([66]))
             time.sleep_ms(20)
             time.sleep_ms(1000)
-        elif "青菜" == (class_names[res_index] if (res_index != -1 and len(class_names) > res_index) else ""):
+        elif "Other" == (class_names[res_index] if (res_index != -1 and len(class_names) > res_index) else ""):
             robot_dog_setup_uart.write(bytes([0]))
             time.sleep_ms(20)
             time.sleep_ms(1000)

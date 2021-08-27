@@ -24,7 +24,7 @@
 
 ​	下载“CocoBlockly X 二代模块上传插件”（橙色图标）
 
-![DownloadCoco](readmeImages\DownloadCoco.png)
+![DownloadCoco](readmeImages/AIBlocklyUpdate.png)
 
 
 
@@ -32,17 +32,17 @@
 
 ​	打开软件，在电脑右下角右击软件图标，选择“AI模块固件更新”
 
-![AIBlocklyUpdate](readmeImages\AIBlocklyUpdate.png)
+![AIBlocklyUpdate](readmeImages/AIBlocklyUpdate.png)
 
 ​	会弹出如下窗口（如未弹出，请重启软件再尝试）
 
-<img src="readmeImages\KflashGui.png" alt="KflashGui" style="zoom:80%;" />
+<img src="readmeImages/KflashGui.png" alt="KflashGui" style="zoom:80%;" />
 
 ​	上方框选择.kfpkg文件（cocorobo-ai-module_firmware_2021-5-20_(中文)_STABLE.kfpkg）
 
 ​	连接电脑和狗狗，下方框自动填入。完成后如下图。
 
-![ChooseKfpkg](readmeImages\ChooseKfpkg.png)
+![ChooseKfpkg](readmeImages/ChooseKfpkg.png)
 
 ​	开始下载并等待下载成功（保持电脑和狗狗连接稳定）
 
@@ -54,7 +54,7 @@
 
 ​	关闭拿出sd卡，通过sd卡读卡器在pc上读取sd卡文件，大致目录如下，将原来内容全部清除后，将新的内容填入，目录结构不变（新的内容在sd文件中）
 
-![SdCodes](readmeImages\SdCodes.png)
+![SdCodes](readmeImages/SdCodes.png)
 
 
 
@@ -62,5 +62,9 @@
 
 ​	sd卡内容修改完成后，启动XGO狗狗后，版本日期为20210520，选择demo后目录如下，说明升级完成
 
+<<<<<<< HEAD
 ![DemoCodes](readmeImages\DemoCodes.png)
 
+=======
+<img src="readmeimages/DemoCodes.png" alt="DemoCodes" style="zoom: 33%;" />
+>>>>>>> d8a0c326367abed8b6ce054092e08d30c4d9de56

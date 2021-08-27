@@ -62,4 +62,5 @@
 
 ​	sd卡内容修改完成后，启动XGO狗狗后，版本日期为20210520，选择demo后目录如下，说明升级完成
 
-<img src="readmeimages\DemoCodes.png" alt="DemoCodes" style="zoom: 33%;" />
+![DemoCodes](readmeImages\DemoCodes.png)
+

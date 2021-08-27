@@ -69,38 +69,35 @@ CATEGORY_ITEMS_DICT = {
     "vision": (33, 3, 174, 30, 41, 8, '视觉', "/sd/preset/images/icon_vision.jpg"),
     #"ml": (33, 3, 174, 30, 41, 10, '人工智能', "/sd/preset/images/icon_ml.jpg"),
     #"audiovideo": (33, 3, 174, 30, 41, 8, '多媒体', "/sd/preset/images/icon_av.jpg"),
-    "dog": (33, 3, 174, 30, 41, 8, '机械狗', "/sd/preset/images/icon_av.jpg")
+    "voice": (33, 3, 174, 30, 41, 8, 'VOICE', "/sd/preset/images/icon_av.jpg")
 }
 
 MENU_LANGUAGE = "cs"
 MENU_ITEM_PARENT_PATH = "/sd/preset/demos/"+MENU_LANGUAGE+"/"
 
 MENU_ITEMS = [
-    # Dog
-    ("表演模式", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_show" + ".py"),
-    ("人脸检测", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_face_detection" + ".py"),
-    ("人脸识别", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_facial_recognition" + ".py"),
-    ("人脸跟随", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_face_tracking" + ".py"),
-    #("人体跟随", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_person_tracking" + ".py"),
-    ("口罩检测", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_mask_detection" + ".py"),
-    #("猜拳游戏", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_finger_guessing" + ".py"),
-    ("手势识别", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_hand_gesture" + ".py"),
-    ("手部跟随", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_hand_tracking" + ".py"),
-    ("交通标志识别", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_trafficsign" + ".py"),
-    ("红绿灯识别", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_trafficlight" + ".py"),
-    ("物体分类", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_image_classification" + ".py"),
-    ("骨头识别", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_class_recognition" + ".py"),
-    ("音频分析", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_sound_spectrum_analyze" + ".py"),
-    ("普通话识别", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_mandarin_recognition" + ".py"),
-
     # Machine Vision
+    ("表演模式", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_show" + ".py"),
+    ("人脸检测", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_face_detection" + ".py"),
+    ("人脸识别", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_facial_recognition" + ".py"),
+    ("人脸跟随", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_face_tracking" + ".py"),
+    #("人体跟随", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_person_tracking" + ".py"),
+    ("口罩检测", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_mask_detection" + ".py"),
+    ("猜拳游戏", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_finger_guessing" + ".py"),
+    ("手势识别", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_hand_8gesture" + ".py"),
+    #("手势识别", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_hand_gesture" + ".py"),
+    ("手部跟随", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_hand_tracking" + ".py"),
+    ("交通标志识别", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_trafficsign" + ".py"),
+    ("红绿灯识别", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_trafficlight" + ".py"),
+    ("物体分类", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_image_classification" + ".py"),
+    ("骨头识别", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_class_recognition" + ".py"),
     ("区域颜色分析", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_reginal_color_analyze" + ".py"),
     ("自动学习并寻找颜色", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_learn_track_color" + ".py"),
     ("色块追踪", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_vision_square_track" + ".py"),
-    ("寻找圆圈", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_find_circle" + ".py"),
-    ("寻找矩形", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_find_rectangle" + ".py"),
-    ("寻找线条", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_find_lines" + ".py"),
     ("寻找二维码并解码", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_vision_decode_QR" + ".py"),
+    # voice
+    ("音频分析", CATEGORY_ITEMS_DICT["voice"], MENU_ITEM_PARENT_PATH + "demo_dog_sound_spectrum_analyze" + ".py"),
+    ("普通话识别", CATEGORY_ITEMS_DICT["voice"], MENU_ITEM_PARENT_PATH + "demo_dog_mandarin_recognition" + ".py"),
 ]
 
 BASE_COORD = [3, 33, 3+10, 33+5]

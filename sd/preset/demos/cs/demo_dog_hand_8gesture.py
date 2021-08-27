@@ -86,18 +86,17 @@ def lcd_draw_string(canvas, x, y, text, color=(255,255,255), font_size=1, scale=
 
 _camera_x, _camera_y = 0, 0
 
-task_customized_model = kpu.load("/sd/preset/models/rps/yolov2.kmodel")
-anchor_customized_model = (1.9551, 4.6866, 2.3092, 5.4064, 2.7024, 5.7547, 3.2026, 4.4318, 3.3322, 5.6523)
-a = kpu.init_yolo2(task_customized_model, 0.65, 0.1, 5, anchor_customized_model)
+task_customized_model = kpu.load("/sd/preset/models/hand/8gesture.kmodel")
+anchor_customized_model = (3.8144, 4.0599, 4.4811, 4.5793, 5.2525, 5.0046, 5.5361, 5.7905, 6.3127, 6.1317)
+a = kpu.init_yolo2(task_customized_model, 0.75, 0, 5, anchor_customized_model)
 
-classes_customized_model = ["scissors", "paper", "rock"]
+classes_customized_model = ["fist", "five", "left", "right", "love", "ok", "thumbup", "yeah"]
 
 
 
 lcd.init(type=2,freq=15000000,width=240,height=240,color=(0,0,0))
 lcd.rotation(1)
 lcd.clear(lcd.BLACK)
-_camera_x, _camera_y = 8, 8
 sensor.reset()
 sensor.set_pixformat(sensor.RGB565)
 sensor.set_framesize(sensor.QVGA)
@@ -113,21 +112,53 @@ while True:
     if time.ticks_ms() - detime >= 300:
         code_customized_model = kpu.run_yolo2(task_customized_model, camera)
         if code_customized_model is not None:
+            for i in (code_customized_model):
+                camera.draw_rectangle((i.x()),(i.y()), (i.w()), (i.h()), color=(51,102,255), thickness=2, fill=False)
+                camera.draw_rectangle((i.x()),(i.y()), (i.w()), 25, color=(51,102,255), thickness=2, fill=True)
+                dstr = classes_customized_model[i.classid()]
+                lcd_draw_string(camera,(i.x()),(i.y()), dstr, color=(255,255,255), scale=1, mono_space=False)
+            _camera_x, _camera_y = 8, 8
+            lcd.display(camera, oft=(_camera_x,_camera_y))
             if len(code_customized_model) == 1:
-                for i in (code_customized_model):
-                    if (classes_customized_model[i.classid()]) == "scissors":
-                        canvas = image.Image("/sd/preset/images/rps/rock.jpg")
-                    elif (classes_customized_model[i.classid()]) == "paper":
-                        canvas = image.Image("/sd/preset/images/rps/scissors.jpg")
-                    elif (classes_customized_model[i.classid()]) == "rock":
-                        canvas = image.Image("/sd/preset/images/rps/paper.jpg")
-                    _canvas_x, _canvas_y = 0, 0
-                    lcd.display(canvas, oft=(_canvas_x,_canvas_y))
-                    robot_dog_setup_uart.write(bytes([57]))
+                if dstr == "fist":
+                    robot_dog_setup_uart.write(bytes([54]))
                     time.sleep_ms(20)
-                    time.sleep_ms(1000)
-                    detime = time.ticks_ms()
-                    lcd.clear(lcd.BLACK)
+                elif dstr == "five":
+                    robot_dog_setup_uart.write(bytes([51]))
+                    time.sleep_ms(20)
+                elif dstr == "left":
+                    rotate_speed = mapping(60,-150,150,0,255)
+                    robot_dog_setup_uart.write(b'\x55\x00\x09\x01\x32' + bytes([rotate_speed]) + calculate_sum(ord(b'\x32'),rotate_speed) + b'\x00\xaa')
+                    time.sleep(1.5)
+                    robot_dog_setup_uart.write(b'\x55\x00\x09\x01\x32\x80\x43\x00\xaa')
+                    time.sleep_ms(20)
+                    distance = mapping(150,-25,25,0,255)
+                    robot_dog_setup_uart.write(b'\x55\x00\x09\x01\x30' + bytes([distance]) + calculate_sum(ord(b'\x30'),distance) + b'\x00\xaa')
+                    time.sleep_ms(20)
+                elif dstr == "right":
+                    rotate_speed = mapping((-60),-150,150,0,255)
+                    robot_dog_setup_uart.write(b'\x55\x00\x09\x01\x32' + bytes([rotate_speed]) + calculate_sum(ord(b'\x32'),rotate_speed) + b'\x00\xaa')
+                    time.sleep(1.5)
+                    robot_dog_setup_uart.write(b'\x55\x00\x09\x01\x32\x80\x43\x00\xaa')
+                    time.sleep_ms(20)
+                    distance = mapping(150,-25,25,0,255)
+                    robot_dog_setup_uart.write(b'\x55\x00\x09\x01\x30' + bytes([distance]) + calculate_sum(ord(b'\x30'),distance) + b'\x00\xaa')
+                    time.sleep_ms(20)
+                elif dstr == "love":
+                    robot_dog_setup_uart.write(bytes([67]))
+                    time.sleep_ms(20)
+                elif dstr == "ok":
+                    robot_dog_setup_uart.write(bytes([62]))
+                    time.sleep_ms(20)
+                elif dstr == "thumbup":
+                    robot_dog_setup_uart.write(bytes([65]))
+                    time.sleep_ms(20)
+                elif dstr == "yeah":
+                    robot_dog_setup_uart.write(bytes([60]))
+                    time.sleep_ms(20)
+                time.sleep_ms(3000)
+            detime = time.ticks_ms()
+    _camera_x, _camera_y = 8, 8
     lcd.display(camera, oft=(_camera_x,_camera_y))
     if _gp_side_c.value() == 1:
         old_time = time.ticks_ms()

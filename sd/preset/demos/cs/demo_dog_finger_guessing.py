@@ -71,7 +71,7 @@ def mapping(input_value,i_min,i_max,o_min,o_max):
     if input_value > i_max:
         input_value = i_max
     dat=(input_value-i_min)/(i_max-i_min)*(o_max-o_min)+o_min
-    return int(dat)
+    return round(dat)
 
 try:from cocorobo import display_cjk_string
 except:pass
@@ -97,8 +97,7 @@ classes_customized_model = ["scissors", "paper", "rock"]
 lcd.init(type=2,freq=15000000,width=240,height=240,color=(0,0,0))
 lcd.rotation(1)
 lcd.clear(lcd.BLACK)
-lcd.mirror(True)
-canvas = image.Image(size=(240, 240))
+_camera_x, _camera_y = 8, 8
 sensor.reset()
 sensor.set_pixformat(sensor.RGB565)
 sensor.set_framesize(sensor.QVGA)
@@ -107,30 +106,34 @@ sensor.set_hmirror(0)
 sensor.skip_frames(30)
 sensor.run(1)
 sensor.set_windowing((224,224))
+sensor.set_hmirror(True)
+detime = time.ticks_ms()
 while True:
     camera = sensor.snapshot()
-    code_customized_model = kpu.run_yolo2(task_customized_model, camera)
-    if code_customized_model is not None:
-        if len(code_customized_model) == 1:
-            for i in (code_customized_model):
-                if (classes_customized_model[i.classid()]) == "scissors":
-                    canvas.draw_image(image.Image("/sd/preset/images/rps/rock.jpg"), 0,0,  x_scale=1,  y_scale=1 )
-                elif (classes_customized_model[i.classid()]) == "paper":
-                    canvas.draw_image(image.Image("/sd/preset/images/rps/scissors.jpg"), 0,0,  x_scale=1,  y_scale=1 )
-                elif (classes_customized_model[i.classid()]) == "rock":
-                    canvas.draw_image(image.Image("/sd/preset/images/rps/paper.jpg"), 0,0,  x_scale=1,  y_scale=1 )
-                lcd.display(canvas, oft=(_canvas_x,_canvas_y))
-                robot_dog_setup_uart.write(bytes([57]))
-                time.sleep_ms(20)
-                time.sleep_ms(1000)
-                canvas.clear()
-    _camera_x, _camera_y = 8, 8
+    if time.ticks_ms() - detime >= 300:
+        code_customized_model = kpu.run_yolo2(task_customized_model, camera)
+        if code_customized_model is not None:
+            if len(code_customized_model) == 1:
+                for i in (code_customized_model):
+                    if (classes_customized_model[i.classid()]) == "scissors":
+                        canvas = image.Image("/sd/preset/images/rps/rock.jpg")
+                    elif (classes_customized_model[i.classid()]) == "paper":
+                        canvas = image.Image("/sd/preset/images/rps/scissors.jpg")
+                    elif (classes_customized_model[i.classid()]) == "rock":
+                        canvas = image.Image("/sd/preset/images/rps/paper.jpg")
+                    _canvas_x, _canvas_y = 0, 0
+                    lcd.display(canvas, oft=(_canvas_x,_canvas_y))
+                    robot_dog_setup_uart.write(bytes([57]))
+                    time.sleep_ms(20)
+                    time.sleep_ms(1000)
+                    detime = time.ticks_ms()
+                    lcd.clear(lcd.BLACK)
     lcd.display(camera, oft=(_camera_x,_camera_y))
     if _gp_side_c.value() == 1:
-        old_time = _timer_current_time_elapsed
+        old_time = time.ticks_ms()
         while _gp_side_c.value() == 1:
             time.sleep_ms(1)
-            if (_timer_current_time_elapsed) - old_time >= 1000:
+            if time.ticks_ms() - old_time >= 1000:
                 robot_dog_setup_uart.write(bytes([0]))
                 time.sleep_ms(20)
                 machine.reset()

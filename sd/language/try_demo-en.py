@@ -69,40 +69,37 @@ CATEGORY_ITEMS_DICT = {
     "vision": (33, 3, 174, 30, 41, 8, 'VISION', "/sd/preset/images/icon_vision.jpg"),
     #"ml": (33, 3, 174, 30, 41, 10, 'A.I.', "/sd/preset/images/icon_ml.jpg"),
     #"audiovideo": (33, 3, 174, 30, 41, 8, 'MEDIA', "/sd/preset/images/icon_av.jpg"),
-    "dog": (33, 3, 174, 30, 41, 8, 'DOG', "/sd/preset/images/icon_av.jpg")
+    "voice": (33, 3, 174, 30, 41, 8, 'VOICE', "/sd/preset/images/icon_av.jpg")
 }
 
 MENU_LANGUAGE = "en"
 MENU_ITEM_PARENT_PATH = "/sd/preset/demos/"+MENU_LANGUAGE+"/"
 
 MENU_ITEMS = [
-    # Dog
-    ("Dog Show", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_show" + ".py"),
-    ("Face Detection", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_face_detection" + ".py"),
-    ("Facial Recognition", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_facial_recognition" + ".py"),
-    ("Speech Recording", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_speech_recording" + ".py"),
-    ("Speech Recognition", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_speech_recognition" + ".py"),
-    ("Face Tracking", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_face_tracking" + ".py"),
-    #("Person Tracking", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_person_tracking" + ".py"),
-    ("Mask Detection", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_mask_detection" + ".py"),
-    ("Finger Guessing", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_finger_guessing.py" + ".py"),
-    ("Hand Gesture", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_hand_8gesture" + ".py"),
-    #("Hand Gesture", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_hand_gesture" + ".py"),
-    ("Hand Tracking", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_hand_tracking" + ".py"),
-    ("Traffic sign Detection", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_trafficsign" + ".py"),
-    ("Traffic light Detection", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_trafficlight" + ".py"),
-    ("Image Classification", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_image_classification" + ".py"),
-    ("Bone Recognition", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_class_recognition" + ".py"),
-    ("Sound Spectrum Analyze", CATEGORY_ITEMS_DICT["dog"], MENU_ITEM_PARENT_PATH + "demo_dog_sound_spectrum_analyze" + ".py"),
-
     # Machine Vision
+    ("Dog Show", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_show" + ".py"),
+    ("Face Detection", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_face_detection" + ".py"),
+    ("Facial Recognition", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_facial_recognition" + ".py"),
+    ("Face Tracking", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_face_tracking" + ".py"),
+    #("Person Tracking", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_person_tracking" + ".py"),
+    ("Mask Detection", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_mask_detection" + ".py"),
+    ("Finger Guessing", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_finger_guessing" + ".py"),
+    ("Hand Gesture", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_hand_8gesture" + ".py"),
+    #("Hand Gesture", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_hand_gesture" + ".py"),
+    ("Hand Tracking", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_hand_tracking" + ".py"),
+    ("Traffic sign Detection", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_trafficsign" + ".py"),
+    ("Traffic light Detection", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_trafficlight" + ".py"),
+    ("Image Classification", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_image_classification" + ".py"),
+    ("Bone Recognition", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_class_recognition" + ".py"),
+    ("Sound Spectrum Analyze", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_sound_spectrum_analyze" + ".py"),
     ("Regional Color Analyze", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_reginal_color_analyze" + ".py"),
     ("Learn & Find Color", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_learn_track_color" + ".py"),
     ("Track Square", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_vision_square_track" + ".py"),
-    ("Find Circles", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_find_circle" + ".py"),
-    ("Find Rectangles", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_find_rectangle" + ".py"),
-    ("Find Lines", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_find_lines" + ".py"),
     ("Find QR Code and Decode", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_vision_decode_QR" + ".py"),
+    #voice
+    ("Speech Recording", CATEGORY_ITEMS_DICT["voice"], MENU_ITEM_PARENT_PATH + "demo_dog_speech_recording" + ".py"),
+    ("Speech Recognition", CATEGORY_ITEMS_DICT["voice"], MENU_ITEM_PARENT_PATH + "demo_dog_speech_recognition" + ".py"),
+    ("Sound Spectrum Analyze", CATEGORY_ITEMS_DICT["voice"], MENU_ITEM_PARENT_PATH + "demo_dog_sound_spectrum_analyze" + ".py"),
 ]
 
 BASE_COORD = [3, 33, 3+10, 33+5]

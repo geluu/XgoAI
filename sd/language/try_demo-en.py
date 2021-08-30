@@ -91,7 +91,6 @@ MENU_ITEMS = [
     ("Traffic light Detection", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_trafficlight" + ".py"),
     ("Image Classification", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_image_classification" + ".py"),
     ("Bone Recognition", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_class_recognition" + ".py"),
-    ("Sound Spectrum Analyze", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_dog_sound_spectrum_analyze" + ".py"),
     ("Regional Color Analyze", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_reginal_color_analyze" + ".py"),
     ("Learn & Find Color", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_learn_track_color" + ".py"),
     ("Track Square", CATEGORY_ITEMS_DICT["vision"], MENU_ITEM_PARENT_PATH + "demo_vision_square_track" + ".py"),

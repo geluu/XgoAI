@@ -442,92 +442,83 @@
                                                                               </block>
                                                                             </statement>
                                                                             <next>
-                                                                              <block type="esp32_main_controller_time_timer_init" id="Qx/Mr[AFs,T{v`Hf^iTM">
-                                                                                <field name="type">on_ai</field>
-                                                                                <next>
-                                                                                  <block type="controls_if" id="tDiZwAG(nk~sE#}_*cZg">
-                                                                                    <value name="IF0">
-                                                                                      <block type="ai_k210_button_read_pressed" id="}uM*DM[(B+m@akO8Oqcq">
-                                                                                        <field name="button_type">c</field>
-                                                                                      </block>
+                                                                              <block type="controls_if" id="tDiZwAG(nk~sE#}_*cZg">
+                                                                                <value name="IF0">
+                                                                                  <block type="ai_k210_button_read_pressed" id="}uM*DM[(B+m@akO8Oqcq">
+                                                                                    <field name="button_type">c</field>
+                                                                                  </block>
+                                                                                </value>
+                                                                                <statement name="DO0">
+                                                                                  <block type="variables_set" id="3k[G%fXm6JK:T+=ub@|m">
+                                                                                    <field name="VAR">C_time</field>
+                                                                                    <value name="VALUE">
+                                                                                      <shadow type="math_number" id="LdnQYU8Hts--eI)%R!{Z">
+                                                                                        <field name="NUM">0</field>
+                                                                                      </shadow>
+                                                                                      <block type="time_millis" id="+L|W+l$d`:1[dphU6Bi0"></block>
                                                                                     </value>
-                                                                                    <statement name="DO0">
-                                                                                      <block type="variables_set" id="3k[G%fXm6JK:T+=ub@|m">
-                                                                                        <field name="VAR">C_time</field>
-                                                                                        <value name="VALUE">
-                                                                                          <shadow type="math_number" id="LdnQYU8Hts--eI)%R!{Z">
-                                                                                            <field name="NUM">0</field>
-                                                                                          </shadow>
-                                                                                          <block type="esp32_main_controller_time_timer_get_current" id="_A@fw]uWMy%E)E-bK^NT">
-                                                                                            <field name="type">on_ai</field>
+                                                                                    <next>
+                                                                                      <block type="controls_whileUntil" id="]kQzZRY3I.z^35=H{9g^">
+                                                                                        <field name="MODE">WHILE</field>
+                                                                                        <value name="BOOL">
+                                                                                          <block type="ai_k210_button_read_pressed" id="iMzP1f7i]Hr[Mx$lx2)~">
+                                                                                            <field name="button_type">c</field>
                                                                                           </block>
                                                                                         </value>
-                                                                                        <next>
-                                                                                          <block type="controls_whileUntil" id="]kQzZRY3I.z^35=H{9g^">
-                                                                                            <field name="MODE">WHILE</field>
-                                                                                            <value name="BOOL">
-                                                                                              <block type="ai_k210_button_read_pressed" id="iMzP1f7i]Hr[Mx$lx2)~">
-                                                                                                <field name="button_type">c</field>
+                                                                                        <statement name="DO">
+                                                                                          <block type="time_delay" id="7:Xl96kHp7}l~FV]XkLN">
+                                                                                            <value name="DELAY_TIME_MILI">
+                                                                                              <block type="math_number" id="-`sn:r]dnZcyH.=u/15I">
+                                                                                                <field name="NUM">1</field>
                                                                                               </block>
                                                                                             </value>
-                                                                                            <statement name="DO">
-                                                                                              <block type="time_delay" id="7:Xl96kHp7}l~FV]XkLN">
-                                                                                                <value name="DELAY_TIME_MILI">
-                                                                                                  <block type="math_number" id="-`sn:r]dnZcyH.=u/15I">
-                                                                                                    <field name="NUM">1</field>
-                                                                                                  </block>
-                                                                                                </value>
-                                                                                                <next>
-                                                                                                  <block type="controls_if" id="Ll|hl=u|h5;..z,(Y5Zf">
-                                                                                                    <value name="IF0">
-                                                                                                      <block type="logic_compare" id=".baRgw%DBPUr1Ej~Ekvh">
-                                                                                                        <field name="OP">GTE</field>
+                                                                                            <next>
+                                                                                              <block type="controls_if" id="Ll|hl=u|h5;..z,(Y5Zf">
+                                                                                                <value name="IF0">
+                                                                                                  <block type="logic_compare" id=".baRgw%DBPUr1Ej~Ekvh">
+                                                                                                    <field name="OP">GTE</field>
+                                                                                                    <value name="A">
+                                                                                                      <block type="math_arithmetic" id="S*Is+h*_nV.$n^h;gwiH">
+                                                                                                        <field name="OP">MINUS</field>
                                                                                                         <value name="A">
-                                                                                                          <block type="math_arithmetic" id="S*Is+h*_nV.$n^h;gwiH">
-                                                                                                            <field name="OP">MINUS</field>
-                                                                                                            <value name="A">
-                                                                                                              <shadow type="math_number" id="[RDgDm4cU9(Tp}/L`,!I">
-                                                                                                                <field name="NUM">1</field>
-                                                                                                              </shadow>
-                                                                                                              <block type="esp32_main_controller_time_timer_get_current" id="f_|QhlMIpqS)Af1G-LSv">
-                                                                                                                <field name="type">on_ai</field>
-                                                                                                              </block>
-                                                                                                            </value>
-                                                                                                            <value name="B">
-                                                                                                              <shadow type="math_number" id="ozsv-B2QC}_fG]ox*7o6">
-                                                                                                                <field name="NUM">1</field>
-                                                                                                              </shadow>
-                                                                                                              <block type="variables_get" id="[us{Z`9X/GT+xCHNAGqe">
-                                                                                                                <field name="VAR">C_time</field>
-                                                                                                              </block>
-                                                                                                            </value>
-                                                                                                          </block>
+                                                                                                          <shadow type="math_number" id="[RDgDm4cU9(Tp}/L`,!I">
+                                                                                                            <field name="NUM">1</field>
+                                                                                                          </shadow>
+                                                                                                          <block type="time_millis" id="AUwI;+u[Cuh0ohs_=AL$"></block>
                                                                                                         </value>
                                                                                                         <value name="B">
-                                                                                                          <block type="math_number" id="s-6SFMJor0oc#eno^bt(">
-                                                                                                            <field name="NUM">1000</field>
+                                                                                                          <shadow type="math_number" id="ozsv-B2QC}_fG]ox*7o6">
+                                                                                                            <field name="NUM">1</field>
+                                                                                                          </shadow>
+                                                                                                          <block type="variables_get" id="[us{Z`9X/GT+xCHNAGqe">
+                                                                                                            <field name="VAR">C_time</field>
                                                                                                           </block>
                                                                                                         </value>
                                                                                                       </block>
                                                                                                     </value>
-                                                                                                    <statement name="DO0">
-                                                                                                      <block type="robot_dog_action" id="W6BX$iwtGw@W!.z,a$8~">
-                                                                                                        <field name="type">0</field>
-                                                                                                        <next>
-                                                                                                          <block type="ai_system_restart" id="i3HYhU3q`9dIA,|TuKJ4"></block>
-                                                                                                        </next>
+                                                                                                    <value name="B">
+                                                                                                      <block type="math_number" id="s-6SFMJor0oc#eno^bt(">
+                                                                                                        <field name="NUM">1000</field>
                                                                                                       </block>
-                                                                                                    </statement>
+                                                                                                    </value>
                                                                                                   </block>
-                                                                                                </next>
+                                                                                                </value>
+                                                                                                <statement name="DO0">
+                                                                                                  <block type="robot_dog_action" id="W6BX$iwtGw@W!.z,a$8~">
+                                                                                                    <field name="type">0</field>
+                                                                                                    <next>
+                                                                                                      <block type="ai_system_restart" id="i3HYhU3q`9dIA,|TuKJ4"></block>
+                                                                                                    </next>
+                                                                                                  </block>
+                                                                                                </statement>
                                                                                               </block>
-                                                                                            </statement>
+                                                                                            </next>
                                                                                           </block>
-                                                                                        </next>
+                                                                                        </statement>
                                                                                       </block>
-                                                                                    </statement>
+                                                                                    </next>
                                                                                   </block>
-                                                                                </next>
+                                                                                </statement>
                                                                               </block>
                                                                             </next>
                                                                           </block>

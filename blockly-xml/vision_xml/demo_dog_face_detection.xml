@@ -9,8 +9,8 @@
             <field name="image_property">set_hmirror</field>
             <field name="DEGREE">True</field>
             <next>
-              <block type="esp32_main_controller_time_timer_init" id="~EP@cy|s/[87*ey8dC1`">
-                <field name="type">on_ai</field>
+              <block type="ai_model_face_recognition_init" id="Ap2L40.uW4NTG2euQ#JE">
+                <field name="DEGREE">Human Face Recognition</field>
                 <next>
                   <block type="controls_repeat_forever" id="[`3.S.)})uy~IT;BYZCo">
                     <statement name="DO">
@@ -23,7 +23,7 @@
                           <block type="ai_camera_snapshot" id="-rEg)jgs|7.tJRAngBtI"></block>
                         </value>
                         <next>
-                          <block type="ai_model_allinit" id="U|q?QOU;sL07XK|~vC~|">
+                          <block type="ai_model_face_recognition_load" id="G)?`uuI3it(n2FfKygui">
                             <field name="DEGREE">Human Face Recognition</field>
                             <field name="varitem">img_facerecognition</field>
                             <next>
@@ -123,7 +123,7 @@
                                           <block type="controls_forEach" id="{48TL;VF;R?jshSaEih|">
                                             <field name="VAR">i</field>
                                             <value name="LIST">
-                                              <block type="ai_model_face" id=":JU^UXyE1[*!McehOb2)"></block>
+                                              <block type="ai_model_face_attribute" id="JcPfc((-Weq.3kXa]AKQ"></block>
                                             </value>
                                             <statement name="DO">
                                               <block type="ai_lcd_ractanglecarvas" id="?9*,$-f8.xt!JDX{NX:C">
@@ -299,9 +299,7 @@
                                                           <shadow type="math_number" id="l9_rc4ZgeBDM85Ty*Lx_">
                                                             <field name="NUM">0</field>
                                                           </shadow>
-                                                          <block type="esp32_main_controller_time_timer_get_current" id="BhRuX?j;Gf}YxE8d};TA">
-                                                            <field name="type">on_ai</field>
-                                                          </block>
+                                                          <block type="time_millis" id="JTBkc(6`BB^S3NUKZRA/"></block>
                                                         </value>
                                                         <next>
                                                           <block type="controls_whileUntil" id="|Xd`psAFq=uE|2+Zy?*X">
@@ -330,9 +328,7 @@
                                                                               <shadow type="math_number" id="x}Yoy^EHU?6CL.e7|WIX">
                                                                                 <field name="NUM">1</field>
                                                                               </shadow>
-                                                                              <block type="esp32_main_controller_time_timer_get_current" id="4N!L=w5.}8oKEazHqo,a">
-                                                                                <field name="type">on_ai</field>
-                                                                              </block>
+                                                                              <block type="time_millis" id=")x*_n-4Z]lG2.65IJi[_"></block>
                                                                             </value>
                                                                             <value name="B">
                                                                               <shadow type="math_number" id="~13us$?l`geU.$w5Nzn=">

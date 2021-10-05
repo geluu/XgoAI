@@ -23,48 +23,43 @@
               <block type="robot_dog_open_performance_mode" id="HBa]COYPhH7VS!cEb]EG">
                 <field name="action">open</field>
                 <next>
-                  <block type="esp32_main_controller_time_timer_init" id="YnQFkvc;neQOi0:.r0i5">
-                    <field name="type">on_ai</field>
-                    <next>
-                      <block type="controls_repeat_forever" id=",Qye3ME@%kstA[K*tNpE">
-                        <statement name="DO">
-                          <block type="procedures_callnoreturn" id="riK7zp,swmGHy-oJ%|vW">
-                            <mutation name="aoye"></mutation>
+                  <block type="controls_repeat_forever" id=",Qye3ME@%kstA[K*tNpE">
+                    <statement name="DO">
+                      <block type="procedures_callnoreturn" id="riK7zp,swmGHy-oJ%|vW">
+                        <mutation name="aoye"></mutation>
+                        <next>
+                          <block type="procedures_callnoreturn" id="S/W+U4Qn`K,X}V7Oa[jo">
+                            <mutation name="reopen"></mutation>
                             <next>
-                              <block type="procedures_callnoreturn" id="S/W+U4Qn`K,X}V7Oa[jo">
-                                <mutation name="reopen"></mutation>
+                              <block type="procedures_callnoreturn" id="5fq@}*.Db,0lU?M4ZsxM">
+                                <mutation name="anzhongguancha"></mutation>
                                 <next>
-                                  <block type="procedures_callnoreturn" id="5fq@}*.Db,0lU?M4ZsxM">
-                                    <mutation name="anzhongguancha"></mutation>
+                                  <block type="procedures_callnoreturn" id="qFV/n]b:Z#)u9Z0Rbs8,">
+                                    <mutation name="reopen"></mutation>
                                     <next>
-                                      <block type="procedures_callnoreturn" id="qFV/n]b:Z#)u9Z0Rbs8,">
-                                        <mutation name="reopen"></mutation>
+                                      <block type="procedures_callnoreturn" id="nJ1fsSk/N$r.F#GMj_C#">
+                                        <mutation name="er"></mutation>
                                         <next>
-                                          <block type="procedures_callnoreturn" id="nJ1fsSk/N$r.F#GMj_C#">
-                                            <mutation name="er"></mutation>
+                                          <block type="procedures_callnoreturn" id="Y.f{@%^mo_*Llq8/|2DD">
+                                            <mutation name="reopen"></mutation>
                                             <next>
-                                              <block type="procedures_callnoreturn" id="Y.f{@%^mo_*Llq8/|2DD">
-                                                <mutation name="reopen"></mutation>
+                                              <block type="procedures_callnoreturn" id="ZIj}-8${4sj-$h%$MAU_">
+                                                <mutation name="laugh"></mutation>
                                                 <next>
-                                                  <block type="procedures_callnoreturn" id="ZIj}-8${4sj-$h%$MAU_">
-                                                    <mutation name="laugh"></mutation>
+                                                  <block type="procedures_callnoreturn" id="/pcck^*@^mffo4]Ff67(">
+                                                    <mutation name="reopen"></mutation>
                                                     <next>
-                                                      <block type="procedures_callnoreturn" id="/pcck^*@^mffo4]Ff67(">
-                                                        <mutation name="reopen"></mutation>
+                                                      <block type="procedures_callnoreturn" id="B|2fzRb:q2RH/wxEs%~u">
+                                                        <mutation name="lengmo"></mutation>
                                                         <next>
-                                                          <block type="procedures_callnoreturn" id="B|2fzRb:q2RH/wxEs%~u">
-                                                            <mutation name="lengmo"></mutation>
+                                                          <block type="procedures_callnoreturn" id="N7@Pm6s[!w{4tl]smAf}">
+                                                            <mutation name="reopen"></mutation>
                                                             <next>
-                                                              <block type="procedures_callnoreturn" id="N7@Pm6s[!w{4tl]smAf}">
-                                                                <mutation name="reopen"></mutation>
+                                                              <block type="procedures_callnoreturn" id="{9fU=#)2ZI6aKl$(_yu3">
+                                                                <mutation name="yaobai"></mutation>
                                                                 <next>
-                                                                  <block type="procedures_callnoreturn" id="{9fU=#)2ZI6aKl$(_yu3">
-                                                                    <mutation name="yaobai"></mutation>
-                                                                    <next>
-                                                                      <block type="procedures_callnoreturn" id="M}.si9n:d?UdJJS#pn:X">
-                                                                        <mutation name="reopen"></mutation>
-                                                                      </block>
-                                                                    </next>
+                                                                  <block type="procedures_callnoreturn" id="M}.si9n:d?UdJJS#pn:X">
+                                                                    <mutation name="reopen"></mutation>
                                                                   </block>
                                                                 </next>
                                                               </block>
@@ -86,9 +81,9 @@
                               </block>
                             </next>
                           </block>
-                        </statement>
+                        </next>
                       </block>
-                    </next>
+                    </statement>
                   </block>
                 </next>
               </block>
@@ -2734,9 +2729,7 @@
               <shadow type="math_number" id="kM0VXP53Nqrz(``LXX6K">
                 <field name="NUM">0</field>
               </shadow>
-              <block type="esp32_main_controller_time_timer_get_current" id="7.dlB46$GwN,?9fO(T?5">
-                <field name="type">on_ai</field>
-              </block>
+              <block type="time_millis" id="Q,.L;{wx0M1a9*o%B~9("></block>
             </value>
             <next>
               <block type="controls_whileUntil" id="Yv`xaf^iZlpNMxI7x!F*">
@@ -2765,9 +2758,7 @@
                                   <shadow type="math_number" id="1.`Tg%V}LWF[]r=u1oB[">
                                     <field name="NUM">1</field>
                                   </shadow>
-                                  <block type="esp32_main_controller_time_timer_get_current" id="((OltcOFxMrk@E$Ij|]9">
-                                    <field name="type">on_ai</field>
-                                  </block>
+                                  <block type="time_millis" id="*[rt):#p$3rUV=2~x0zH"></block>
                                 </value>
                                 <value name="B">
                                   <shadow type="math_number" id="+t:9zm^S,X:1A9S5*3nD">
